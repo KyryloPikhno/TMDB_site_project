@@ -1,9 +1,13 @@
-
+import {Route, Routes, Navigate} from "react-router-dom";
 
 function App() {
 
   return (
-      <div>app</div>
+      <Routes>
+        <Route path={}>
+
+        </Route>
+      </Routes>
   );
 }
 
