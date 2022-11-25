@@ -11,7 +11,7 @@ const Movies = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(movieActions.getAll)
+        dispatch(movieActions.getAll())
     }, [dispatch])
 
     return (
