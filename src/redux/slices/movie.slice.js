@@ -1,4 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+
 import {movieService} from "../../services";
 
 
@@ -36,13 +37,16 @@ const movieSlice= createSlice({
                 state.error = action.payload
                 state.loading = false
             })
-
+            .addCase(getAll.pending,(state,action)=>{
+                state.loading= true
+                state.error = null
+            })
 })
 
-const {reducer: movieReducer, actions: {},} = movieSlice;
+const {reducer: movieReducer} = movieSlice;
 
 const movieActions ={
     getAll
 }
 
-export {movieReducer, movieActions, movieSlice};
+export {movieReducer, movieActions};
