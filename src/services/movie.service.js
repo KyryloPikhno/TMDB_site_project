@@ -1,9 +1,9 @@
 import {axiosService} from "./axios.service";
-import {urls} from "../configs";
+import {baseURl, urls} from "../configs";
 
 
 const movieService = {
-    getAll: () => axiosService.get(urls.movies)
+    getAll: () => axiosService.get(`${baseURl}${urls.movies}`)
 };
 
 export {movieService};

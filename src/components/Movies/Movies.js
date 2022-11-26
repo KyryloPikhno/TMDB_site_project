@@ -12,7 +12,7 @@ const Movies = () => {
 
     useEffect(() => {
         dispatch(movieActions.getAll())
-    }, [dispatch])
+    }, [dispatch,movies])
 
     return (
         <div>
