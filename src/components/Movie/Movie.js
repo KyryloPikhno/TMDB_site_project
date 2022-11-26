@@ -1,9 +1,9 @@
-const Movie = () => {
+const Movie = ({movie}) => {
 
 
     return (
         <div>
-            movie
+            {movie.id}
         </div>
     );
 };
