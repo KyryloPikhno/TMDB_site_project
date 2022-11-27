@@ -1,17 +1,16 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {genreActions} from "../../redux/slices/genre.slice";
 import {Genre} from "../Genre/Genre";
 
 const Header = () => {
-    const [genres, setGenres] = useState([])
 
-    const {currentGenre} = useSelector(state=>state.genreReducer)
+    const {genres} = useSelector(state=>state.genreReducer)
 
     const dispatch = useDispatch()
 
     useEffect(()=>{
-        dispatch(genreActions.getAll()).then(({payload})=>setGenres(payload.genres))
+        dispatch(genreActions.getAll())
     },[])
 
     return (

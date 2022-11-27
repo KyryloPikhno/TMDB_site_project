@@ -13,7 +13,7 @@ const Genre = ({genre}) => {
 
     return (
         <Stack direction="row" spacing={2}>
-            <Button onClick={()=>dispatch(genreActions.getCurrentGenre(currentGenre))}>{genre.name}</Button>
+            <Button onClick={()=>dispatch(genreActions.getCurrentGenre(genre))}>{genre.name}</Button>
         </Stack>
     );
 };
