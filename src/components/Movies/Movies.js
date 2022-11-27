@@ -8,9 +8,14 @@ import css from './Movies.module.css'
 const Movies = () => {
 
     const {movies} = useSelector(state => state.movieReducer)
+    
+    const {currentGenre} = useSelector(state => state.genreReducer)
 
     const dispatch = useDispatch()
 
+    useEffect(()=>{
+        console.log(currentGenre);
+    },[dispatch,currentGenre])
 
     useEffect(() => {
         dispatch(movieActions.getAll())

@@ -1,6 +1,7 @@
 import {Button, Stack} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
 import {genreActions} from "../../redux/slices/genre.slice";
+import {useEffect} from "react";
 
 
 
@@ -9,6 +10,7 @@ const Genre = ({genre}) => {
     const {currentGenre} = useSelector(state => state.genreReducer)
 
     const dispatch = useDispatch()
+
 
 
     return (
