@@ -1,0 +1,13 @@
+.container{
+    width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-left: 114px ;
+}
+
+.loaderContainer{
+    display: flex;
+    justify-content: center;
+    margin: 150px ;
+}
