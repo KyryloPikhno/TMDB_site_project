@@ -14,7 +14,7 @@ const Genres = () => {
         dispatch(genreActions.getAll()).then(({payload})=>setGenres(payload.genres))
     },[])
 
-    console.log(genres);
+    // console.log(genres);
 
     return (
         <div>

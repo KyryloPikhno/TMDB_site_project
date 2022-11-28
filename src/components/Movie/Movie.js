@@ -4,6 +4,7 @@ import {useDispatch} from "react-redux";
 import {genreActions} from "../../redux/slices/genre.slice";
 import {Badge} from "../Badge/Badge";
 import css from './Movie.module.css'
+import {Stars} from "../Stars/Stars";
 
 
 const Movie = ({movie}) => {
@@ -33,6 +34,9 @@ const Movie = ({movie}) => {
             </div>
             <div className={css.title}>
                 {title}
+            </div>
+            <div className={css.stars}>
+                <Stars  vote_average={vote_average}/>
             </div>
         </div>
     );
