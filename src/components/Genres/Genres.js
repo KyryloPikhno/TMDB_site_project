@@ -8,8 +8,6 @@ const Genres = () => {
 
     const [genres, setGenres] = useState([])
 
-    // const {genres} = useSelector(state=>state.genreReducer)
-
     const dispatch = useDispatch()
 
     useEffect(()=>{
