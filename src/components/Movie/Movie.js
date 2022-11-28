@@ -19,10 +19,9 @@ const Movie = ({movie}) => {
 
     useEffect(() => {
         dispatch(genreActions.getAll()).then(({payload}) => setGenres(payload.genres))
-        console.log(badges);
     }, [dispatch]);
 
-    const badges = genres.filter(genre => genre_ids.includes(genre.id)).map(item => item.name)
+        const badges = genres.filter(genre => genre_ids.includes(genre.id)).map(value => value.name)
 
     return (
         <div className={currentTheme === 'dark' ? css.card : css.lightCard}>

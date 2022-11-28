@@ -4,7 +4,7 @@ const Badge = ({badge}) => {
 
     return (
         <div>
-            {badge.name}
+            {badge}
         </div>
     );
 };
