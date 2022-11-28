@@ -2,6 +2,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {movieActions} from "../../redux/slices/movie.slice";
 import {Movie} from "../Movie/Movie";
+
 import css from './Movies.module.css'
 
 
