@@ -9,7 +9,7 @@ import {useSearchParams} from "react-router-dom";
 
 const Movies = () => {
 
-    const {currentGenre} = useSelector(state => state.genreReducer)
+    const {currentGenre} = useSelector(state =>  state.genreReducer)
     const {movies} = useSelector(state => state.movieReducer)
 
     // const [filter, setFilter] = useState([])
