@@ -7,7 +7,6 @@ const initialState = {
     movies:[],
     loading:false,
     error:null,
-    filterParam:''
 };
 
 
@@ -26,11 +25,7 @@ const getAll = createAsyncThunk(
 const movieSlice= createSlice({
     name:'movieSlice',
     initialState,
-    reducers:{
-        setFilterParam: (state, action) => {
-            state.filterParam = action.payload
-        }
-    },
+    reducers:{},
     extraReducers: builder =>
         builder
             .addCase(getAll.fulfilled, (state, action) => {
@@ -48,10 +43,10 @@ const movieSlice= createSlice({
             })
 })
 
-const {reducer: movieReducer, actions:{setFilterParam}} = movieSlice;
+const {reducer: movieReducer, actions:{}} = movieSlice;
 
 const movieActions ={
-    getAll,setFilterParam
+    getAll
 }
 
 export {movieReducer, movieActions};
