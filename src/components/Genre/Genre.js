@@ -6,8 +6,6 @@ import {genreActions} from "../../redux/slices/genre.slice";
 
 const Genre = ({genre}) => {
 
-    // const {currentGenre} = useSelector(state => state.genreReducer)
-
     const dispatch = useDispatch()
 
     return (

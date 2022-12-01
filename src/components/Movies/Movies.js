@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
 import {movieActions} from "../../redux/slices/movie.slice";
 import {Movie} from "../Movie/Movie";
@@ -9,19 +9,22 @@ import css from './Movies.module.css'
 const Movies = () => {
 
     const {currentGenre} = useSelector(state =>  state.genreReducer)
-    const {movies} = useSelector(state => state.movieReducer)
+    // const {movies} = useSelector(state => state.movieReducer)
 
-    // const [filter, setFilter] = useState([])
-    // const [query, setQuery] = useSearchParams();
+    const [movies, setMovies] = useState([])
+    const [genreName, setGenreName] = useState('')
 
     const dispatch = useDispatch()
 
     useEffect(() => {
         if (currentGenre) {
-            const name = currentGenre.name
-            dispatch(movieActions.getAll({name}))
+            console.log(currentGenre);
+
+            setGenreName(currentGenre.name)
+
+            dispatch(movieActions.getByGenre({genreName})).then(({payload})=>setMovies(payload))
         } else {
-            dispatch(movieActions.getAll())
+            dispatch(movieActions.getAll()).then(({payload})=>setMovies(payload))
         }
     }, [dispatch, currentGenre]);
 
