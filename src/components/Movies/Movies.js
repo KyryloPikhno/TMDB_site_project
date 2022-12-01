@@ -17,15 +17,22 @@ const Movies = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        if (currentGenre) {
+        // if (currentGenre) {
+        //     console.log(currentGenre);
+        //
+        //     setGenreName(currentGenre.name)
+        //
+        //     dispatch(movieActions.getByGenre({genreName})).then(({payload})=>setMovies(payload))
+        // } else {
+        //     dispatch(movieActions.getAll()).then(({payload})=>setMovies(payload))
+        // }
+
             console.log(currentGenre);
 
-            setGenreName(currentGenre.name)
+            setGenreName(currentGenre?.name)
 
             dispatch(movieActions.getByGenre({genreName})).then(({payload})=>setMovies(payload))
-        } else {
-            dispatch(movieActions.getAll()).then(({payload})=>setMovies(payload))
-        }
+
     }, [dispatch, currentGenre]);
 
     // console.log(movies);
