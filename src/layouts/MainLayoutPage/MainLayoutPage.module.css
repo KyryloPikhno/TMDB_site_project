@@ -1,0 +1,36 @@
+body{
+    background: #1d1d1d;
+}
+
+html{
+    scroll-behavior: unset;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#root{
+    width: 100%;
+}
+
+
+.container,.lightContainer{
+    max-width: 2000px;
+    min-width: 1350px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #1d1d1d;
+    transition: 0.3s;
+}
+
+.lightContainer{
+    background: gray;
+
+    height: max-content;
+}

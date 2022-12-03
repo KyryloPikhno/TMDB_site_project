@@ -1,8 +1,7 @@
 import {Route, Routes ,Navigate} from "react-router-dom";
 
+import {MoviesPage, NotFoundPage, MoviesWithGenrePage} from "./pages";
 import {MainLayoutPage} from "./layouts/MainLayoutPage";
-import {MoviesPage, NotFoundPage} from "./pages";
-import {MoviesWithGenrePage} from "./pages/MoviesWithGenrePage/MoviesWithGenrePage";
 
 
 function App() {

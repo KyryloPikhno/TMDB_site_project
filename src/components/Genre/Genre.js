@@ -6,12 +6,13 @@ import css from './Genre.module.css'
 
 
 const Genre = ({genre}) => {
-
     const dispatch = useDispatch()
 
+    const genreName = genre.name.split(" ").join("")
+
     return (
-        <NavLink className={css.box} to={`/movies_with_genre=${genre.name}`}>
-            <button onClick={()=>dispatch(genreActions.getCurrentGenre(genre))}>{genre.name}</button>
+        <NavLink className={css.box} to={`/movies_with_genre=${genreName}`}>
+            <div onClick={()=>dispatch(genreActions.getCurrentGenre(genre))}>{genre.name}</div>
         </NavLink>
     );
 };

@@ -1,12 +1,16 @@
 import {Genres} from "../Genres/Genres";
+import css from './Header.module.css'
 
 const Header = () => {
 
 
     return (
-        <div>
+        <div className={css.header}>
             Header
-            <Genres/>
+            <div className={css.containerForGenre}>
+                <h3>GENRES</h3>
+                <Genres/>
+            </div>
         </div>
     );
 };
