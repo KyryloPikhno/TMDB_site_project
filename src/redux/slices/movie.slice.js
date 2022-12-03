@@ -13,9 +13,9 @@ const initialState = {
 
 const getAll = createAsyncThunk(
     'movieSlice/getAll',
-    async ({page, genre}, {rejectWithValue}) => {
+    async (_, {rejectWithValue}) => {
         try {
-            const {data} = await movieService.getAll(page, genre)
+            const {data} = await movieService.getAll()
             return data
         } catch (e) {
             return rejectWithValue(e.response.data)
