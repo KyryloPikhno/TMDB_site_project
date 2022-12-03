@@ -1,20 +1,18 @@
-import {useDispatch, } from "react-redux";
+import {useDispatch, useSelector,} from "react-redux";
 import {genreActions} from "../../redux/slices/genre.slice";
 import {Genre} from "../Genre/Genre";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 
 
 const Genres = () => {
 
-    const [genres, setGenres] = useState([])
+    const {genres} = useSelector(state => state.genreReducer)
 
     const dispatch = useDispatch()
 
     useEffect(()=>{
-        dispatch(genreActions.getAll()).then(({payload})=>setGenres(payload.genres))
-    },[])
-
-    // console.log(genres);
+        dispatch(genreActions.getAll())
+    },[dispatch])
 
     return (
         <div>

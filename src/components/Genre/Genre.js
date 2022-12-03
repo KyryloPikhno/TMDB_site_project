@@ -1,7 +1,8 @@
-import {Button, Stack} from "@mui/material";
 import {useDispatch} from "react-redux";
-import {genreActions} from "../../redux/slices/genre.slice";
+import {NavLink} from "react-router-dom";
 
+import {genreActions} from "../../redux/slices/genre.slice";
+import css from './Genre.module.css'
 
 
 const Genre = ({genre}) => {
@@ -9,9 +10,9 @@ const Genre = ({genre}) => {
     const dispatch = useDispatch()
 
     return (
-        <Stack direction="row" spacing={2}>
-            <Button onClick={()=>dispatch(genreActions.getCurrentGenre(genre))}>{genre.name}</Button>
-        </Stack>
+        <NavLink className={css.box} to={`/movies_with_genre=${genre.name}`}>
+            <button onClick={()=>dispatch(genreActions.getCurrentGenre(genre))}>{genre.name}</button>
+        </NavLink>
     );
 };
 
