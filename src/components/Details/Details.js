@@ -2,16 +2,22 @@ import {useLocation} from "react-router-dom";
 import css from './Details.module.css'
 import {urls} from "../../configs";
 import {Stars} from "../Stars/Stars";
+import {useSelector} from "react-redux";
+import {Badge} from "../Badge/Badge";
 
 
 const Details = () => {
 
 const {state} = useLocation()
 
+    console.log(useLocation());
+
+
     const {
         adult,
         backdrop_path,
         id,
+        genre_ids,
         original_language,
         original_title,
         overview,
@@ -20,8 +26,12 @@ const {state} = useLocation()
         release_date,
         title,
         vote_average,
-        vote_count
+        vote_count,
     } = state;
+
+    const {genres} = useSelector(state => state.genreReducer)
+
+    const badges = genres.filter(genre => genre_ids.includes(genre.id)).map(value => value.name)
 
     return (
         <div className={css.container}>
@@ -43,8 +53,8 @@ const {state} = useLocation()
                     <p>Popularity: {popularity}</p>
                     <p>Vote count: {vote_count}</p>
                     <p>Overview: {overview}</p>
-                    <div className={css.badges}>
-                        {/*{badge && badge.map((genre, index)=> <Badge key={index} genre={genre}/>)}*/}
+                    <div>
+                        {badges && badges.map((genre, index)=> <Badge key={index} genre={genre}/>)}
                     </div>
                 </div>
             </div>
