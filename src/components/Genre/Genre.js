@@ -5,7 +5,6 @@ import css from './Genre.module.css'
 
 const Genre = ({genre}) => {
 
-
     const genreName = genre.name.split(" ").join("")
     const genreId = genre.id.toString()
 

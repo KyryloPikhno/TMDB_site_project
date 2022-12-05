@@ -6,6 +6,7 @@ import {movieService} from "../../services";
 const initialState = {
     movies:[],
     moviesByGenre:[],
+    moviesBySearch:[],
     loading:false,
     error:null,
 };
@@ -25,15 +26,29 @@ const getAll = createAsyncThunk(
 
 const getByGenre = createAsyncThunk(
     'movieSlice/getByGenre',
-    async ({page, genreId},{rejectWithValue})=>{
+    async ({page, id}, {rejectWithValue}) => {
         try {
-            const{data} = await  movieService.getAll(page, genreId)
+            const {data} = await movieService.getAll(page, id)
             return data
-        }catch (e){
+        } catch (e) {
             return rejectWithValue(e.response.data)
         }
     }
-)
+);
+
+const search = createAsyncThunk(
+    'movieSlice/search',
+    async ({page, title}, {rejectWithValue}) => {
+        try {
+            const {data} = await movieService.search(page,title)
+            return data
+        } catch (e) {
+            return rejectWithValue(e.response.data)
+        }
+    }
+);
+
+
 
 const movieSlice= createSlice({
     name:'movieSlice',
@@ -67,13 +82,27 @@ const movieSlice= createSlice({
                 state.loading= true
                 state.error = null
             })
+            .addCase(search.fulfilled, (state, action) => {
+                state.moviesBySearch = action.payload
+                state.error = null
+                state.loading = false
+            })
+            .addCase(search.rejected, (state, action) => {
+                state.error = action.payload
+                state.loading = false
+            })
+            .addCase(search.pending,(state,action)=>{
+                state.loading= true
+                state.error = null
+            })
 })
 
-const {reducer: movieReducer, actions:{}} = movieSlice;
+const {reducer: movieReducer} = movieSlice;
 
 const movieActions ={
     getAll,
-    getByGenre
+    getByGenre,
+    search
 }
 
 export {movieReducer, movieActions};

@@ -1,0 +1,38 @@
+.input,.lightInput{
+    box-sizing: border-box;
+    background: #616161;
+    border: 1px solid white;
+    margin-right: 5px;
+    text-align: center;
+    color: #ffffff;
+    height: 25px;
+    width: 400px;
+}
+
+.lightInput{
+    border: 1px solid black;
+    background: #d6d6d6;
+    color: #1d1d1d;
+}
+
+.button,.lightButton,.noValidButton{
+    box-sizing: border-box;
+    background: black;
+    color: white;
+    width: 65px;
+    border: 1px solid white;
+    height: 25px;
+    transition: 1s;
+}
+
+.noValidButton{
+    background: gray;
+    border: 1px solid gray;
+    transition: 1s;
+}
+
+.lightButton{
+    background: white;
+    color: black;
+    border: 1px solid black;
+}

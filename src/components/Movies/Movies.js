@@ -12,7 +12,7 @@ const Movies = () => {
 
     useEffect(() => {
         const page = '1'
-        dispatch(movieActions.getAll(page))
+        dispatch(movieActions.getAll({page}))
     }, [dispatch]);
 
         // console.log(movies);

@@ -1,5 +1,4 @@
-import {useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 
 import {Badge} from "../Badge/Badge";
 import css from './Movie.module.css'
@@ -13,16 +12,14 @@ const Movie = ({movie}) => {
 
     const image_path = 'https://image.tmdb.org/t/p/w500'
 
-    const dispatch = useDispatch()
-
         const badges = genres.filter(genre => genre_ids.includes(genre.id)).map(value => value.name)
 
     return (
         <div className={css.card}>
-            <div>
+            <div className={css.badgeContainer}>
                 {badges && badges.map((badge, index) => <Badge key={index} badge={badge}/>)}
             </div>
-            <div>
+            <div className={css.imgBox}>
                 {poster_path && <img className={css.img} src={`${image_path}${poster_path}`} alt={title}/>}
             </div>
             <div className={css.title}>
