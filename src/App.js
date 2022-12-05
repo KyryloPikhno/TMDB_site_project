@@ -1,6 +1,6 @@
 import {Route, Routes ,Navigate} from "react-router-dom";
 
-import {MoviesPage, NotFoundPage, MoviesWithGenrePage, MoviesBySearchPage} from "./pages";
+import {MoviesPage, NotFoundPage, MoviesWithGenrePage, MoviesBySearchPage, DetailsPage} from "./pages";
 import {MainLayoutPage} from "./layouts/MainLayoutPage";
 
 
@@ -13,6 +13,9 @@ function App() {
             <Route path={'/movies'} element={<MoviesPage/>}/>
             <Route path={'/movies_with_genre=:name/:id'} element={<MoviesWithGenrePage/>}/>
             <Route path={'/movies_with_title=:title'} element={<MoviesBySearchPage/>}/>
+                <Route path={'/movies/detailed_info_with_id=:id'} element={<DetailsPage/>}/>
+                <Route path={'/movies_with_genre=:name/:id/detailed_info_with_id=:id'} element={<DetailsPage/>}/>
+                <Route path={'/movies_with_title=:title/detailed_info_with_id=:id'} element={<DetailsPage/>}/>
         </Route>
           <Route path={'*'} element={<NotFoundPage/>}/>
       </Routes>
