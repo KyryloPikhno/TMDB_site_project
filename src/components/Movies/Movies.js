@@ -15,13 +15,11 @@ const Movies = () => {
         dispatch(movieActions.getAll({page}))
     }, [dispatch]);
 
-        // console.log(movies);
+    // console.log(movies);
 
     return (
         <div className={css.container}>
-            {
-                movies.results && movies.results.map(movie =><Movie key={movie.id} movie={movie} />)
-            }
+            {movies.results && movies.results.map(movie => <Movie key={movie.id} movie={movie}/>)}
         </div>
     );
 };

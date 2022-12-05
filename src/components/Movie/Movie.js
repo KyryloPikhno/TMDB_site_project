@@ -1,12 +1,12 @@
 import {useDispatch, useSelector} from "react-redux";
-
-import {Badge} from "../Badge/Badge";
-import css from './Movie.module.css'
-import {Stars} from "../Stars/Stars";
-import {Link} from "react-router-dom";
-import {urls} from "../../configs";
 import {useEffect} from "react";
+import {Link} from "react-router-dom";
+
 import {genreActions} from "../../redux/slices/genre.slice";
+import {Badge} from "../Badge/Badge";
+import {Stars} from "../Stars/Stars";
+import {urls} from "../../configs";
+import css from './Movie.module.css'
 
 
 const Movie = ({movie}) => {
