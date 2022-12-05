@@ -11,10 +11,10 @@ const movieService = {
                 page,
             }
         }),
-    search: (page, title) => axiosService.get(`${baseURl}${urls.movies}`,
+    search: (page, title) => axiosService.get(`${baseURl}${urls.search}`,
         {
             params: {
-                with_genres: title,
+                query: title,
                 page,
             }
         }

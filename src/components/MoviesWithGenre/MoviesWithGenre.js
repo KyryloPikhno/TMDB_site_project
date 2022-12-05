@@ -10,10 +10,7 @@ const MoviesWithGenre = () => {
 
     const {moviesByGenre} = useSelector(state => state.movieReducer)
 
-    console.log(moviesByGenre);
     const dispatch = useDispatch()
-
-    console.log(id);
 
     useEffect(() => {
         const page = 2

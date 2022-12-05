@@ -20,7 +20,7 @@ const SearchForm = () => {
 
     const submit = ({title}) =>{
         dispatch(movieActions.search({title}))
-        navigate('/all_movies/page/1')
+        navigate(`/movies_with_title=${title}`)
         reset()
     }
 
