@@ -11,10 +11,11 @@ const Movies = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(movieActions.getAll())
-    }, [dispatch])
+        const page = '1'
+        dispatch(movieActions.getAll(page))
+    }, [dispatch]);
 
-        console.log(movies);
+        // console.log(movies);
 
     return (
         <div className={css.container}>
