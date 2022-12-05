@@ -1,10 +1,12 @@
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 import {Badge} from "../Badge/Badge";
 import css from './Movie.module.css'
 import {Stars} from "../Stars/Stars";
 import {Link} from "react-router-dom";
 import {urls} from "../../configs";
+import {useEffect} from "react";
+import {genreActions} from "../../redux/slices/genre.slice";
 
 
 const Movie = ({movie}) => {
@@ -12,13 +14,18 @@ const Movie = ({movie}) => {
 
     const {id, title, vote_average, poster_path, genre_ids} = movie
 
+    const badges = genres.filter(genre => genre_ids.includes(genre.id)).map(value => value)
 
-    const badges = genres.filter(genre => genre_ids.includes(genre.id)).map(value => value.name)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(genreActions.getCurrentGenres(badges))
+    }, [dispatch]);
 
     return (
         <Link to={`detailed_info_with_id=${id}`} state={{...movie}} className={css.card}>
             <div className={css.badgeContainer}>
-                {badges && badges.map((badge, index) => <Badge key={index} badge={badge}/>)}
+                {badges && badges.map(badge => <Badge key={badge.id} badge={badge}/>)}
             </div>
             <div className={css.imgBox}>
                 {poster_path && <img className={css.img} src={`${urls.image_path}${poster_path}`} alt={title}/>}

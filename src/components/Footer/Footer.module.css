@@ -1,0 +1,23 @@
+.footer{
+    color: white;
+    width: 886px;
+    height: 200px;
+    border-top: 2px solid orange;
+    display: flex;
+    align-items: center;
+}
+
+.box{
+    display: flex;
+    align-items: center;
+    margin-left: 100px;
+}
+
+.box p {
+    border-right: 1px solid white;
+    padding-right: 5px;
+}
+
+.footer img {
+    width: 40px;
+}

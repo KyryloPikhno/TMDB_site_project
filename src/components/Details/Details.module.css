@@ -31,8 +31,6 @@
     cursor: pointer;
 }
 
-
-
 .info,.lightInfo{
     display: flex;
     flex-direction: column;
@@ -56,7 +54,20 @@
 .badges{
     position: absolute;
     left: 5px;
-    top: 478px;
+    top: 472px;
     display: flex;
-    gap: 2px;
+    gap: 4px;
+}
+
+.badges div{
+    width: 110px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.badges div:hover{
+    background: coral;
 }

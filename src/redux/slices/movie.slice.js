@@ -11,7 +11,6 @@ const initialState = {
     error:null,
 };
 
-
 const getAll = createAsyncThunk(
     'movieSlice/getAll',
     async ({page}, {rejectWithValue}) => {
@@ -49,15 +48,16 @@ const search = createAsyncThunk(
 );
 
 
-
-const movieSlice= createSlice({
-    name:'movieSlice',
+const movieSlice = createSlice({
+    name: 'movieSlice',
     initialState,
-    reducers:{},
+    reducers: {},
     extraReducers: builder =>
         builder
             .addCase(getAll.fulfilled, (state, action) => {
                 state.movies = action.payload
+                state.moviesByGenre = []
+                state.moviesBySearch = []
                 state.error = null
                 state.loading = false
             })
@@ -65,12 +65,14 @@ const movieSlice= createSlice({
                 state.error = action.payload
                 state.loading = false
             })
-            .addCase(getAll.pending,(state,action)=>{
-                state.loading= true
+            .addCase(getAll.pending, (state) => {
+                state.loading = true
                 state.error = null
             })
             .addCase(getByGenre.fulfilled, (state, action) => {
                 state.moviesByGenre = action.payload
+                state.movies = []
+                state.moviesBySearch = []
                 state.error = null
                 state.loading = false
             })
@@ -78,12 +80,14 @@ const movieSlice= createSlice({
                 state.error = action.payload
                 state.loading = false
             })
-            .addCase(getByGenre.pending,(state,action)=>{
-                state.loading= true
+            .addCase(getByGenre.pending, (state) => {
+                state.loading = true
                 state.error = null
             })
             .addCase(search.fulfilled, (state, action) => {
                 state.moviesBySearch = action.payload
+                state.moviesByGenre = []
+                state.movies = []
                 state.error = null
                 state.loading = false
             })
@@ -91,11 +95,11 @@ const movieSlice= createSlice({
                 state.error = action.payload
                 state.loading = false
             })
-            .addCase(search.pending,(state,action)=>{
-                state.loading= true
+            .addCase(search.pending, (state) => {
+                state.loading = true
                 state.error = null
             })
-})
+});
 
 const {reducer: movieReducer} = movieSlice;
 
