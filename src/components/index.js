@@ -5,3 +5,4 @@ export * from './Pagination/Pagination';
 export * from './Movie/Movie';
 export * from './Movies/Movies';
 export * from './MoviesBySearch/MoviesBySearch';
+export * from './Stars/Stars';
