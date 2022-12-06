@@ -1,9 +1,11 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {movieActions} from "../../redux/slices/movie.slice";
-import css from "../Movies/Movies.module.css";
-import {Movie} from "../Movie/Movie";
 import {useParams} from "react-router-dom";
+
+import {movieActions} from "../../redux/slices/movie.slice";
+import {Movie} from "../Movie/Movie";
+import css from "MoviesWithGenre.module.css";
+
 
 const MoviesWithGenre = () => {
     const {name,id} = useParams()
@@ -19,9 +21,7 @@ const MoviesWithGenre = () => {
 
     return (
         <div className={css.container}>
-            {
-                moviesByGenre.results && moviesByGenre.results.map(movie =><Movie key={movie.id} movie={movie} />)
-            }
+            {moviesByGenre.results && moviesByGenre.results.map(movie =><Movie key={movie.id} movie={movie} />)}
         </div>
     );
 };
