@@ -4,11 +4,12 @@ import {movieService} from "../../services";
 
 
 const initialState = {
-    movies:[],
-    moviesByGenre:[],
-    moviesBySearch:[],
-    loading:false,
-    error:null,
+    movies: [],
+    moviesByGenre: [],
+    moviesBySearch: [],
+    page: 1,
+    loading: false,
+    error: null,
 };
 
 const getAll = createAsyncThunk(
@@ -51,7 +52,11 @@ const search = createAsyncThunk(
 const movieSlice = createSlice({
     name: 'movieSlice',
     initialState,
-    reducers: {},
+    reducers: {
+        getPage:(state,action)=>{
+            state.page = action.payload
+        }
+    },
     extraReducers: builder =>
         builder
             .addCase(getAll.fulfilled, (state, action) => {
@@ -101,12 +106,13 @@ const movieSlice = createSlice({
             })
 });
 
-const {reducer: movieReducer} = movieSlice;
+const {reducer: movieReducer, actions:{getPage}} = movieSlice;
 
 const movieActions ={
     getAll,
     getByGenre,
-    search
+    search,
+    getPage
 }
 
 export {movieReducer, movieActions};

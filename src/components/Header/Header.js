@@ -1,9 +1,9 @@
 import {Genres} from "../Genres/Genres";
-import css from './Header.module.css'
 import {SearchForm} from "../SearchForm/SearchForm";
+import css from './Header.module.css'
+
 
 const Header = () => {
-
 
     return (
         <div className={css.header}>
