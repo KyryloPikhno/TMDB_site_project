@@ -14,9 +14,8 @@
 }
 
 .carouselContainer{
-    border: 2px solid red;
+    /*border: 2px solid red;*/
     width: 886px;
-    /*height:150px;*/
     display: flex;
 }
 
