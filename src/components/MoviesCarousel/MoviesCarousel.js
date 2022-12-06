@@ -33,15 +33,15 @@ const MoviesCarousel = () => {
 
     return (
         <div className={css.container}>
-                <button onClick={handleLeftClick}>
-                    <ArrowBackIosNewIcon fontSize="large" sx={{ color: orange[500] }}/>
-                </button>
+            <button onClick={handleLeftClick}>
+                <ArrowBackIosNewIcon fontSize="large" sx={{color: orange[500]}}/>
+            </button>
             <div className={css.carousel} ref={carousel}>
                 {popularMovies.results && popularMovies.results.map(movie => <Movie key={movie.id} movie={movie}/>)}
             </div>
-                <button onClick={handleRightClick}>
-                    <ArrowForwardIosIcon fontSize="large" sx={{ color: orange[500] }}/>
-                </button>
+            <button onClick={handleRightClick}>
+                <ArrowForwardIosIcon fontSize="large" sx={{color: orange[500]}}/>
+            </button>
         </div>
     );
 };

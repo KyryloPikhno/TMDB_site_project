@@ -69,7 +69,7 @@ const Details = () => {
             </div>
         </div>
                 <div>
-                    { trailers.results && <Youtube videoId={trailers.results[0].key} opts={
+                    { trailers.results  &&  <Youtube videoId={trailers.results[0].key} opts={
                         {
                             width: '100%',
                             height: '500px',
