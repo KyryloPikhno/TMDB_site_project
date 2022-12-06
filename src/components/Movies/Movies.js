@@ -11,12 +11,11 @@ import useLocalStorage from "use-local-storage";
 
 const Movies = () => {
 
-    let [currentPage, setCurrentPage] = useLocalStorage('page',8);
+    // let [currentPage] = useLocalStorage();
 
+    // console.log(currentPage);
 
-    console.log(currentPage);
-
-    const page = currentPage
+    // const page = currentPage
 
     // const [page, setPage] = useState(1);
 
@@ -26,10 +25,16 @@ const Movies = () => {
 
     let totalPages = movies.total_pages
 
+    let [currentPage] = useLocalStorage('page');
+
+    console.log(currentPage);
+
+    let page = currentPage
+
     useEffect(() => {
         dispatch(movieActions.getAll({page}))
         window.scrollTo(0, 0);
-    }, [dispatch, page]);
+    }, [dispatch,currentPage]);
 
     return (
         <div className={css.wrap}>
@@ -38,7 +43,7 @@ const Movies = () => {
             </div>
             <div className={css.container}>
                 {movies.results && movies.results.map(movie => <Movie key={movie.id} movie={movie}/>)}
-                <PaginationForMovies totalPages={totalPages} setCurrentPage={setCurrentPage}/>
+                <PaginationForMovies totalPages={totalPages} />
             </div>
         </div>
     );

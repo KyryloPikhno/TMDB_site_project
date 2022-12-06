@@ -1,14 +1,14 @@
 import Pagination from "@mui/material/Pagination"
 
 import css from './PagonationForMovies.module.css'
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {movieActions} from "../../redux/slices/movie.slice";
+import useLocalStorage from "use-local-storage";
 
 
-const PaginationForMovies = ({setCurrentPage,totalPages}) => {
+const PaginationForMovies = ({totalPages}) => {
 
-
-    const {page} = useSelector(state => state.movieReducer)
+    let [currentPage, setCurrentPage] = useLocalStorage('page',1);
 
     const dispatch = useDispatch()
 
@@ -19,9 +19,10 @@ const PaginationForMovies = ({setCurrentPage,totalPages}) => {
         setCurrentPage(page)
     };
 
+
     return (
         <div className={css.container}>
-            <Pagination count={totalPages} color="standard" onChange={handleChange}></Pagination>
+            <Pagination count={totalPages} color="standard" page={currentPage} onChange={handleChange}></Pagination>
         </div>
     );
 };

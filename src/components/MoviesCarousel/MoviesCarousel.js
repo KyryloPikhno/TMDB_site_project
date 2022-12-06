@@ -11,7 +11,6 @@ import {orange} from "@mui/material/colors";
 const MoviesCarousel = () => {
     const {popularMovies} = useSelector(state => state.movieReducer)
     const carousel = useRef(null);
-    console.log(popularMovies);
 
     const dispatch = useDispatch()
 
