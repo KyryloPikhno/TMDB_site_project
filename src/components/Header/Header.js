@@ -9,7 +9,7 @@ const Header = () => {
     return (
         <div className={css.header}>
             <NavLink to={'/'}>
-                <img className={css.img}  src="https://www.transparentpng.com/thumb/movie/gray-movie-written-icon-png-UpaYYD.png" alt="logo"/>
+                <img className={css.img}  src="https://www.transparentpng.com/thumb/movie/gray-movie-written-icon-png-UpaYYD.png" alt="logo_movie"/>
             </NavLink>
             <div className={css.containerForGenre}>
                 <h3>GENRES</h3>

@@ -6,7 +6,7 @@ import {Stars} from "../Stars/Stars";
 import {Badge} from "../Badge/Badge";
 import {urls} from "../../configs";
 import css from './Details.module.css';
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {movieActions} from "../../redux/slices/movie.slice";
 
 
@@ -66,13 +66,15 @@ const Details = () => {
                 <div className={css.badges}>
                     {badges && badges.map(badge => <Badge key={badge.id} badge={badge}/>)}
                 </div>
+            </div>
+        </div>
                 <div>
                     { trailers.results && <Youtube videoId={trailers.results[0].key} opts={
                         {
                             width: '100%',
-                            height: '100%',
+                            height: '500px',
                             playerVars: {
-                                autoplay: 1,
+                                autoplay: 2,
                                 controls: 0,
                                 cc_load_policy: 0,
                                 fs: 0,
@@ -83,8 +85,6 @@ const Details = () => {
                             },
                         }}/>}
                 </div>
-            </div>
-        </div>
     </div>
     );
 };
