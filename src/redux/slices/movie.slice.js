@@ -7,7 +7,8 @@ const initialState = {
     movies: [],
     moviesByGenre: [],
     moviesBySearch: [],
-    trailers:{},
+    trailers: {},
+    popularMovies: [],
     page: 1,
     loading: false,
     error: null,
@@ -54,6 +55,18 @@ const getTrailer = createAsyncThunk(
     async ({movieId}, {rejectWithValue}) => {
         try {
             const {data} = await movieService.getTrailer(movieId)
+            return data
+        } catch (e) {
+            return rejectWithValue(e.response.data)
+        }
+    }
+);
+
+const getPopularMovies = createAsyncThunk(
+    'movieSlice/getPopularMovies',
+    async (_, {rejectWithValue}) => {
+        try {
+            const {data} = await movieService.getPopularMovies()
             return data
         } catch (e) {
             return rejectWithValue(e.response.data)
@@ -130,6 +143,19 @@ const movieSlice = createSlice({
                 state.loading = true
                 state.error = null
             })
+            .addCase(getPopularMovies.fulfilled, (state, action) => {
+                state.popularMovies = action.payload
+                state.error = null
+                state.loading = false
+            })
+            .addCase(getPopularMovies.rejected, (state, action) => {
+                state.error = action.payload
+                state.loading = false
+            })
+            .addCase(getPopularMovies.pending, (state) => {
+                state.loading = true
+                state.error = null
+            })
 });
 
 const {reducer: movieReducer, actions:{getPage}} = movieSlice;
@@ -139,7 +165,8 @@ const movieActions ={
     getByGenre,
     search,
     getPage,
-    getTrailer
+    getTrailer,
+    getPopularMovies
 }
 
 export {movieReducer, movieActions};

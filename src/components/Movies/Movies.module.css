@@ -12,3 +12,18 @@
     justify-content: center;
     margin: 150px ;
 }
+
+.carouselContainer{
+    border: 2px solid red;
+    width: 886px;
+    /*height:150px;*/
+    display: flex;
+}
+
+.wrap{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
