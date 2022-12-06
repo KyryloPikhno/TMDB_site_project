@@ -3,7 +3,7 @@ body{
 }
 
 html{
-    scroll-behavior: unset;
+    scroll-behavior: smooth;
 }
 
 *{

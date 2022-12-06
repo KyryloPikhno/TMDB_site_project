@@ -7,6 +7,7 @@ const initialState = {
     movies: [],
     moviesByGenre: [],
     moviesBySearch: [],
+    trailers:{},
     page: 1,
     loading: false,
     error: null,
@@ -41,6 +42,18 @@ const search = createAsyncThunk(
     async ({page, title}, {rejectWithValue}) => {
         try {
             const {data} = await movieService.search(page, title)
+            return data
+        } catch (e) {
+            return rejectWithValue(e.response.data)
+        }
+    }
+);
+
+const getTrailer = createAsyncThunk(
+    'movieSlice/getTrailer',
+    async ({movieId}, {rejectWithValue}) => {
+        try {
+            const {data} = await movieService.getTrailer(movieId)
             return data
         } catch (e) {
             return rejectWithValue(e.response.data)
@@ -104,6 +117,19 @@ const movieSlice = createSlice({
                 state.loading = true
                 state.error = null
             })
+            .addCase(getTrailer.fulfilled, (state, action) => {
+                state.trailers = action.payload
+                state.error = null
+                state.loading = false
+            })
+            .addCase(getTrailer.rejected, (state, action) => {
+                state.error = action.payload
+                state.loading = false
+            })
+            .addCase(getTrailer.pending, (state) => {
+                state.loading = true
+                state.error = null
+            })
 });
 
 const {reducer: movieReducer, actions:{getPage}} = movieSlice;
@@ -112,7 +138,8 @@ const movieActions ={
     getAll,
     getByGenre,
     search,
-    getPage
+    getPage,
+    getTrailer
 }
 
 export {movieReducer, movieActions};

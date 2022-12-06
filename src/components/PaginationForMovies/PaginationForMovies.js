@@ -14,8 +14,7 @@ const PaginationForMovies = ({setPage,totalPages}) => {
     const handleChange = (e, page) => {
         setPage(page)
         dispatch(movieActions.getPage(page))
-    }
-
+    };
 
     return (
         <div className={css.container}>
@@ -23,6 +22,5 @@ const PaginationForMovies = ({setPage,totalPages}) => {
         </div>
     );
 };
-
 
 export {PaginationForMovies};

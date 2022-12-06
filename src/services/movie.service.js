@@ -17,8 +17,13 @@ const movieService = {
                 query: title,
                 page,
             }
-        }
-    )
+        }),
+    getTrailer: (movieId) => axiosService.get(`${baseURl}/movie/${movieId}/videos?`,
+        {
+            params: {}
+        })
 };
+
+
 
 export {movieService};

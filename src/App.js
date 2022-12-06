@@ -1,10 +1,11 @@
-import {Route, Routes ,Navigate} from "react-router-dom";
+import {Route, Routes, Navigate} from "react-router-dom";
 
 import {MoviesPage, NotFoundPage, MoviesWithGenrePage, MoviesBySearchPage, DetailsPage} from "./pages";
 import {MainLayoutPage} from "./layouts/MainLayoutPage";
 
 
 function App() {
+
 
     return (
         <Routes>

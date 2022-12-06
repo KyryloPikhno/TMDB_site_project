@@ -2,7 +2,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {Link} from "react-router-dom";
 
-import {genreActions} from "../../redux/slices/genre.slice";
 import {Badge} from "../Badge/Badge";
 import {Stars} from "../Stars/Stars";
 import {urls} from "../../configs";
@@ -16,11 +15,11 @@ const Movie = ({movie}) => {
 
     const badges = genres.filter(genre => genre_ids.includes(genre.id)).map(value => value)
 
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
-    useEffect(() => {
-        dispatch(genreActions.getCurrentGenres(badges))
-    }, [dispatch]);
+    // useEffect(() => {
+    //     dispatch(genreActions.getCurrentGenres(badges))
+    // }, [dispatch]);
 
     return (
         <Link to={`detailed_info_with_id=${id}`} state={{...movie}} className={css.card}>
