@@ -10,7 +10,7 @@ function App() {
     return (
         <Routes>
             <Route path={'/'} element={<MainLayoutPage/>}>
-                <Route index element={<Navigate to={'/all_movies/page=1'}/>}/>
+                <Route index element={<Navigate to={'/all_movies/page:page'}/>}/>
                 <Route path={'/all_movies/page=:page'} element={<MoviesPage/>}/>
                 <Route path={'/movies_with_genre=:name/:id/page=:page'} element={<MoviesWithGenrePage/>}/>
                 <Route path={'/movies_with_title=:title'} element={<MoviesBySearchPage/>}/>

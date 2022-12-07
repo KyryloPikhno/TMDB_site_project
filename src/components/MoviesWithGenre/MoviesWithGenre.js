@@ -10,13 +10,10 @@ import useLocalStorage from "use-local-storage";
 
 const MoviesWithGenre = () => {
     const {name, id} = useParams()
-
     const {moviesByGenre} = useSelector(state => state.movieReducer)
     let [page,setPage] = useLocalStorage('genrePage',1);
 
     const navigate = useNavigate();
-
-    // const [page, setPage] = useState(1);
 
     let totalPages = moviesByGenre.total_pages
 
@@ -25,14 +22,13 @@ const MoviesWithGenre = () => {
     useEffect(() => {
         dispatch(movieActions.getByGenre({page, id}))
         navigate(`/movies_with_genre=${name}/${id}/page=${page}`)
-
         window.scrollTo(0, 0);
     }, [dispatch, id, page]);
 
     return (
         <div className={css.container}>
             {moviesByGenre.results && moviesByGenre.results.map(movie => <Movie key={movie.id} movie={movie}/>)}
-            <PaginationForMovies totalPages={totalPages} page={page} setPage={setPage}/>
+            <PaginationForMovies totalPages={totalPages}  setPage={setPage}/>
         </div>
     );
 };
