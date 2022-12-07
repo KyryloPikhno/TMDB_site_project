@@ -6,35 +6,27 @@ import {Movie} from "../Movie/Movie";
 import css from './Movies.module.css'
 import {PaginationForMovies} from "../PaginationForMovies/PaginationForMovies";
 import {MoviesCarousel} from "../MoviesCarousel/MoviesCarousel";
+import {useNavigate} from "react-router-dom";
 import useLocalStorage from "use-local-storage";
 
 
 const Movies = () => {
 
-    // let [currentPage] = useLocalStorage();
-
-    // console.log(currentPage);
-
-    // const page = currentPage
-
-    // const [page, setPage] = useState(1);
-
     const {movies} = useSelector(state => state.movieReducer)
+    let [page,setPage] = useLocalStorage('page',1);
 
-    const dispatch = useDispatch()
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     let totalPages = movies.total_pages
 
-    let [currentPage] = useLocalStorage('page');
-
-    console.log(currentPage);
-
-    let page = currentPage
-
     useEffect(() => {
         dispatch(movieActions.getAll({page}))
+        navigate(`/all_movies/page=${page}`)
+
         window.scrollTo(0, 0);
-    }, [dispatch,currentPage]);
+    }, [dispatch,page]);
 
     return (
         <div className={css.wrap}>
@@ -43,7 +35,7 @@ const Movies = () => {
             </div>
             <div className={css.container}>
                 {movies.results && movies.results.map(movie => <Movie key={movie.id} movie={movie}/>)}
-                <PaginationForMovies totalPages={totalPages} />
+                <PaginationForMovies totalPages={totalPages}  page={page} setPage={setPage} />
             </div>
         </div>
     );
