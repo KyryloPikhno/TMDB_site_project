@@ -1,23 +1,25 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect, } from "react";
+import {useEffect, useState,} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 
 import {movieActions} from "../../redux/slices/movie.slice";
 import {Movie} from "../Movie/Movie";
 import css from './MoviesWithGenre.module.css'
 import {PaginationForMovies} from "../PaginationForMovies/PaginationForMovies";
-import useLocalStorage from "use-local-storage";
+
 
 const MoviesWithGenre = () => {
-    const {name, id} = useParams()
+    const {name, id,page:currentPage} = useParams()
+
+    const [page,setPage] = useState(currentPage);
+
     const {moviesByGenre} = useSelector(state => state.movieReducer)
-    let [page,setPage] = useLocalStorage('genrePage',1);
 
-    const navigate = useNavigate();
-
-    let totalPages = moviesByGenre.total_pages
+    const navigate = useNavigate()
 
     const dispatch = useDispatch()
+
+    const totalPages = moviesByGenre.total_pages
 
     useEffect(() => {
         dispatch(movieActions.getByGenre({page, id}))

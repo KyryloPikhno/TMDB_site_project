@@ -1,4 +1,4 @@
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {joiResolver} from "@hookform/resolvers/joi";
 import {movieValidator} from "../../validators";
 import {useDispatch} from "react-redux";
@@ -8,6 +8,8 @@ import {useForm} from "react-hook-form";
 
 
 const SearchForm = () => {
+
+    const {page}= useParams()
 
     const navigate = useNavigate()
 
@@ -20,7 +22,8 @@ const SearchForm = () => {
 
     const submit = ({title}) =>{
         dispatch(movieActions.search({title}))
-        navigate(`/movies_with_title=${title}`)
+        console.log(page);
+        navigate(`/movies_with_title=${title}/page=${page}`)
         reset()
     }
 
