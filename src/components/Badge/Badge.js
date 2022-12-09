@@ -11,7 +11,7 @@ const Badge = ({badge}) => {
     const navigate = useNavigate()
 
     return (
-        <div className={css.badge} onClick={()=>navigate(`/movies_with_genre=${genreName}/${genreId}`)}>
+        <div className={css.badge} onClick={()=>navigate(`/movies_with_genre=${genreName}/${genreId}/page=1`)}>
             {badge.name}
         </div>
     );

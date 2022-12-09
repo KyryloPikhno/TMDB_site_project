@@ -38,6 +38,7 @@ const Details = () => {
 
     useEffect(()=>{
         dispatch(movieActions.getTrailer({movieId}))
+        window.scrollTo(0, 0);
     },[movieId])
 
     const {genres} = useSelector(state => state.genreReducer)
@@ -46,12 +47,16 @@ const Details = () => {
 
     return (
     <div className={css.container}>
+        <div className={css.backdropBox}>
         {backdrop_path && <img className={css.backdrop} src={`${urls.image_path}${backdrop_path}`} alt={title}/>}
+                <div className={css.badges}>
+                    {badges && badges.map(badge => <Badge key={badge.id} badge={badge}/>)}
+                </div>
+        </div>
         <div className={css.box}>
             <div className={css.wrap}>
                 {poster_path && <img className={css.poster} src={`${urls.image_path}${poster_path}`} alt={title}/>}
             </div>
-
             <div className={css.info}>
                 <h1 className={css.title}>{title}</h1>
                 <p>Original language: {original_language}</p>
@@ -63,13 +68,10 @@ const Details = () => {
                 <p>Popularity: {popularity}</p>
                 <p>Vote count: {vote_count}</p>
                 <p>Overview: {overview}</p>
-                <div className={css.badges}>
-                    {badges && badges.map(badge => <Badge key={badge.id} badge={badge}/>)}
-                </div>
             </div>
         </div>
                 <div>
-                    { trailers.results  &&  <Youtube videoId={trailers.results[0].key} opts={
+                    { trailers.results && trailers.results.length !== 0  && <Youtube videoId={trailers.results[0].key} opts={
                         {
                             width: '100%',
                             height: '500px',

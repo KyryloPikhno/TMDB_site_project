@@ -7,8 +7,7 @@ const Genre = ({genre}) => {
 
     const {page}= useParams()
 
-
-    console.log(page);
+    // console.log(page);
 
     const genreName = genre.name.split(" ").join("")
     const genreId = genre.id.toString()

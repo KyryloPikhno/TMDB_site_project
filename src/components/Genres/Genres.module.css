@@ -1,0 +1,19 @@
+.containerForGenre {
+    display: flex;
+    flex-direction: column;
+    padding: 20px ;
+    gap: 5px;
+    position: absolute;
+    z-index: 1;
+    left:-160px;
+    bottom: -501.5px;
+    width: 120px;
+}
+
+.containerForGenre h3{
+    width: 120px;
+    text-align: center;
+    color: orange;
+    border-bottom:2px solid orange;
+    margin-bottom: 5px;
+}

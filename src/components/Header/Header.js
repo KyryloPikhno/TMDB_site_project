@@ -13,12 +13,11 @@ const Header = () => {
             <div className={css.imgBox} onClick={()=>navigate('/all_movies/page=1')}>
                 <img className={css.img}  src="https://www.transparentpng.com/thumb/movie/gray-movie-written-icon-png-UpaYYD.png" alt="logo_movie"/>
             </div>
-            <div className={css.containerForGenre}>
-                <h3>GENRES</h3>
-                <Genres/>
-            </div>
             <div>
                 <SearchForm/>
+            </div>
+            <div>
+                <Genres/>
             </div>
         </div>
     );

@@ -4,7 +4,6 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    position: relative;
 }
 
 
@@ -51,14 +50,18 @@
     font-size: 50px;
 }
 
+.backdropBox{
+    position: relative;
+}
+
 .badges{
     flex-wrap: wrap;
     position: absolute;
     left: 5px;
-    top: 472px;
+    top: 470px;
     display: flex;
     gap: 3px;
-    overflow-block: scroll;
+    /*overflow-block: scroll;*/
 }
 
 .badges div{

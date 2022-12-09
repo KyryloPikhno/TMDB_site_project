@@ -35,21 +35,3 @@
     transition: 0.3s;
 }
 
-.containerForGenre{
-    display: flex;
-    flex-direction: column;
-    padding: 20px ;
-    gap: 5px;
-    position: absolute;
-    z-index: 1;
-    left:-160px;
-    bottom: -496.7px;
-
-}
-
-.containerForGenre h3{
-    width: 118px;
-    text-align: center;
-    color: orange;
-    border-bottom:2px solid orange;
-}

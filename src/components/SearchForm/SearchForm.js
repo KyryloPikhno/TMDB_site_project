@@ -21,8 +21,7 @@ const SearchForm = () => {
     const dispatch = useDispatch()
 
     const submit = ({title}) =>{
-        dispatch(movieActions.search({title}))
-        console.log(page);
+        dispatch(movieActions.search({page,title}))
         navigate(`/movies_with_title=${title}/page=${page}`)
         reset()
     }
