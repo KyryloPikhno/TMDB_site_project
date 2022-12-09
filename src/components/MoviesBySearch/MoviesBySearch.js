@@ -30,8 +30,8 @@ const MoviesBySearch = () => {
 
     return (
         <div className={css.container}>
-            {moviesBySearch.results && moviesBySearch.results.map(movie=><Movie key={movie.id} movie={movie}/>)}
-            <PaginationForMovies totalPages={totalPages} setPage={setPage}/>
+                {moviesBySearch.results && moviesBySearch.results.map(movie => <Movie key={movie.id} movie={movie}/>)}
+            {moviesBySearch.results && <PaginationForMovies totalPages={totalPages} setPage={setPage}/>}
         </div>
     );
 };

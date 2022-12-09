@@ -1,6 +1,6 @@
 .container{
     width: 1000px;
-    height: 1900px;
+
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -14,12 +14,12 @@
 }
 
 .carouselContainer{
-    /*border: 2px solid red;*/
     width: 886px;
     display: flex;
 }
 
 .wrap{
+    height: 2200px;
     display: flex;
     justify-content: center;
     flex-direction: column;

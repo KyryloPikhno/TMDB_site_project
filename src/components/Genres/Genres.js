@@ -16,8 +16,8 @@ const Genres = () => {
 
     return (
         <div className={css.containerForGenre}>
-            <h3>GENRES</h3>
-            {genres && genres.map(genre =><Genre key={genre.id} genre={genre}/>)}
+            {genres.length !== 0 && <h3>GENRES</h3>}
+            {genres.map(genre =><Genre key={genre.id} genre={genre}/>)}
         </div>
     );
 };

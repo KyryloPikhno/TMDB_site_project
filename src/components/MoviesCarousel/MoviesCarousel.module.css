@@ -9,7 +9,7 @@
     display: flex;
     overflow-x: auto;
     scroll-behavior: smooth;
-    gap: 5px;
+    gap: 33px;
 }
 
 .container .carousel::-webkit-scrollbar {
@@ -76,7 +76,7 @@
 
 
 .carousel div[class='Movie_title__HKvwH']{
-   display: none;
+  font-size: 10px;
 }
 
 .carousel div[class='Movie_badgeContainer__I-PlF']{
@@ -88,12 +88,12 @@
 }
 
 .carousel div[class='Movie_imgBox__N7xbZ'],.carousel img[class='Movie_img__WUHrV'] {
-    width:121.4px ;
+    width:122.4px ;
 }
 
 .carousel a[class='Movie_card__KTxm8'] {
-    width:121.4px ;
-    height: 185px;
+    width:122.4px ;
+    height: 210px;
 }
 
 

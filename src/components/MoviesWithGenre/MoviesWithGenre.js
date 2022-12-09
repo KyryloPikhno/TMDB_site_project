@@ -30,7 +30,7 @@ const MoviesWithGenre = () => {
     return (
         <div className={css.container}>
             {moviesByGenre.results && moviesByGenre.results.map(movie => <Movie key={movie.id} movie={movie}/>)}
-            <PaginationForMovies totalPages={totalPages}  setPage={setPage}/>
+            {moviesByGenre.results && <PaginationForMovies totalPages={totalPages} setPage={setPage}/>}
         </div>
     );
 };

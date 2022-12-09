@@ -35,10 +35,10 @@ const Movies = () => {
             <div className={css.carouselContainer}>
                 <MoviesCarousel/>
             </div>
-            <div className={css.container}>
+            {movies.results && <div className={css.container}>
                 {movies.results && movies.results.map(movie => <Movie key={movie.id} movie={movie}/>)}
-                <PaginationForMovies totalPages={totalPages}  setPage={setPage} />
-            </div>
+                <PaginationForMovies totalPages={totalPages} setPage={setPage}/>
+            </div>}
         </div>
     );
 };
