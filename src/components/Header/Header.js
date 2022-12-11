@@ -2,6 +2,7 @@ import {Genres} from "../Genres/Genres";
 import {SearchForm} from "../SearchForm/SearchForm";
 import css from './Header.module.css'
 import {useNavigate} from "react-router-dom";
+import {ThemeSwitcher} from "../ThemeSwitcher/ThemeSwitcher";
 
 
 const Header = () => {
@@ -18,6 +19,9 @@ const Header = () => {
             </div>
             <div>
                 <Genres/>
+            </div>
+            <div>
+                <ThemeSwitcher/>
             </div>
         </div>
     );

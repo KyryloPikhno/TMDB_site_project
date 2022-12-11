@@ -4,7 +4,7 @@ import React from 'react';
 
 import App from './App';
 import {Provider} from "react-redux";
-import {setupStore} from "./redux/store/store";
+import {setupStore} from "./redux";
 
 const store = setupStore()
 
