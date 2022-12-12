@@ -1,3 +1,4 @@
+import {useSelector} from "react-redux";
 import {Outlet} from "react-router-dom";
 
 import {Header} from "../../components/Header/Header";
@@ -7,8 +8,10 @@ import css from './MainLayoutPage.module.css'
 
 const MainLayoutPage = () => {
 
+    const {theme} = useSelector(state => state.themeReducer);
+
     return (
-        <div className={css.container}>
+        <div className={theme? css.container : css.lightContainer}>
             <div>
                 <Header/>
             </div>
