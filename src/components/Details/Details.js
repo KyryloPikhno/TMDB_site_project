@@ -31,6 +31,8 @@ const Details = () => {
 
     const {trailers} = useSelector(state => state.movieReducer)
 
+    const {currentTheme} = useSelector(state => state.themeReducer);
+
     const dispatch = useDispatch()
 
     const movieId = id.toString()
@@ -53,7 +55,7 @@ const Details = () => {
                     {badges && badges.map(badge => <Badge key={badge.id} badge={badge}/>)}
                 </div>
             </div>
-            <div className={css.box}>
+            <div className={currentTheme === 'dark'?  css.box : css.lightBox}>
                 <div className={css.wrap}>
                     {poster_path && <img className={css.poster} src={`${urls.image_path}${poster_path}`} alt={title}/>}
                 </div>
