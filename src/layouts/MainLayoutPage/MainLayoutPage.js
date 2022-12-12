@@ -8,10 +8,12 @@ import css from './MainLayoutPage.module.css'
 
 const MainLayoutPage = () => {
 
-    const {theme} = useSelector(state => state.themeReducer);
+    const {currentTheme} = useSelector(state => state.themeReducer);
+
+    console.log(currentTheme);
 
     return (
-        <div className={theme? css.container : css.lightContainer}>
+        <div className={currentTheme === 'dark'? css.container: css.lightContainer}>
             <div>
                 <Header/>
             </div>

@@ -1,4 +1,4 @@
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 
 import {ThemeSwitcher} from "../ThemeSwitcher/ThemeSwitcher";
@@ -11,6 +11,8 @@ import css from './Header.module.css'
 const Header = () => {
     const navigate = useNavigate()
 
+    const {currentTheme} = useSelector(state => state.themeReducer);
+
     const dispatch = useDispatch()
 
     const returner = () => {
@@ -20,7 +22,7 @@ const Header = () => {
     }
 
     return (
-        <div className={css.header}>
+        <div className={currentTheme === 'dark'? css.header : css.lightHeader}>
             <div className={css.imgBox} onClick={returner}>
                 <img className={css.img}
                      src="https://www.transparentpng.com/thumb/movie/gray-movie-written-icon-png-UpaYYD.png"

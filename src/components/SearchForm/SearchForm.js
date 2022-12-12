@@ -1,6 +1,6 @@
 import {useNavigate, useParams} from "react-router-dom";
 import {joiResolver} from "@hookform/resolvers/joi";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useForm} from "react-hook-form";
 
 import {movieValidator} from "../../validators";
@@ -10,6 +10,8 @@ import css from './SearchForm.module.css'
 
 const SearchForm = () => {
     const {page} = useParams()
+
+    const {currentTheme} = useSelector(state => state.themeReducer);
 
     const navigate = useNavigate()
 
@@ -28,8 +30,12 @@ const SearchForm = () => {
 
     return (
         <form onSubmit={handleSubmit(submit)}>
-            <input className={css.input} type="text" placeholder={'Enter movie...'} {...register('title')}/>
-            <button className={!isValid ? css.noValidButton : '' || css.button} disabled={!isValid}>Search</button>
+            <input className={currentTheme === 'dark' ? css.input : css.lightInput} type="text"
+                   placeholder={'Enter movie...'} {...register('title')}/>
+            <button
+                className={!isValid ? css.noValidButton : '' || currentTheme === 'dark' ? css.button : css.lightButton}
+                disabled={!isValid}>Search
+            </button>
             {errors.year && <span>{errors.year.message}</span>}
         </form>
     );

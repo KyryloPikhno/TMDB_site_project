@@ -1,6 +1,6 @@
 .container{
     width: 1000px;
-
+    height: 1900px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -19,7 +19,7 @@
 }
 
 .wrap{
-    height: 2200px;
+    /*height: 2200px;*/
     display: flex;
     justify-content: center;
     flex-direction: column;
