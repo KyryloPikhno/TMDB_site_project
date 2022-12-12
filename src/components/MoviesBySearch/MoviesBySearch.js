@@ -2,11 +2,10 @@ import {useDispatch, useSelector} from "react-redux";
 import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 
-// import {PaginationForMovies} from "../PaginationForMovies/PaginationForMovies";
-import {movieActions} from "../../redux/slices/movie.slice";
+import {PaginationForMovies} from "../PaginationForMovies/PaginationForMovies";
+import {movieActions} from "../../redux/slices";
 import {Movie} from "../Movie/Movie";
 import css from './MoviesBySearch.module.css';
-import {PaginationForMovies} from "../PaginationForMovies/PaginationForMovies";
 
 
 const MoviesBySearch = () => {
@@ -30,7 +29,7 @@ const MoviesBySearch = () => {
 
     return (
         <div className={css.container}>
-                {moviesBySearch.results && moviesBySearch.results.map(movie => <Movie key={movie.id} movie={movie}/>)}
+            {moviesBySearch.results && moviesBySearch.results.map(movie => <Movie key={movie.id} movie={movie}/>)}
             {moviesBySearch.results && <PaginationForMovies totalPages={totalPages} setPage={setPage}/>}
         </div>
     );

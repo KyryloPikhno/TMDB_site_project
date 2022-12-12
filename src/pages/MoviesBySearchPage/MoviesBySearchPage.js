@@ -1,7 +1,7 @@
 import {MoviesBySearch} from "../../components";
 
-const MoviesBySearchPage = () => {
 
+const MoviesBySearchPage = () => {
 
     return (
         <div>

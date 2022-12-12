@@ -1,27 +1,27 @@
 import {useNavigate, useParams} from "react-router-dom";
 import {joiResolver} from "@hookform/resolvers/joi";
-import {movieValidator} from "../../validators";
 import {useDispatch} from "react-redux";
-import {movieActions} from "../../redux/slices/movie.slice";
-import css from './SearchForm.module.css'
 import {useForm} from "react-hook-form";
+
+import {movieValidator} from "../../validators";
+import {movieActions} from "../../redux/slices";
+import css from './SearchForm.module.css'
 
 
 const SearchForm = () => {
-
-    const {page}= useParams()
+    const {page} = useParams()
 
     const navigate = useNavigate()
 
-    const{handleSubmit, register, reset, formState:{errors,isValid}} = useForm({
+    const {handleSubmit, register, reset, formState: {errors, isValid}} = useForm({
         resolver: joiResolver(movieValidator),
-        mode:'all'
+        mode: 'all'
     })
 
     const dispatch = useDispatch()
 
-    const submit = ({title}) =>{
-        dispatch(movieActions.search({page,title}))
+    const submit = ({title}) => {
+        dispatch(movieActions.search({page, title}))
         navigate(`/movies_with_title=${title}/page=${page}`)
         reset()
     }
@@ -29,7 +29,7 @@ const SearchForm = () => {
     return (
         <form onSubmit={handleSubmit(submit)}>
             <input className={css.input} type="text" placeholder={'Enter movie...'} {...register('title')}/>
-            <button className={!isValid? css.noValidButton:'' ||css.button} disabled={!isValid}>Search</button>
+            <button className={!isValid ? css.noValidButton : '' || css.button} disabled={!isValid}>Search</button>
             {errors.year && <span>{errors.year.message}</span>}
         </form>
     );

@@ -1,11 +1,12 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect, useRef} from "react";
-import {movieActions} from "../../redux/slices/movie.slice";
-import {Movie} from "../Movie/Movie";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import css from './MoviesCarousel.module.css'
+import {useEffect, useRef} from "react";
 import {orange} from "@mui/material/colors";
+
+import {movieActions} from "../../redux/slices";
+import {Movie} from "../Movie/Movie";
+import css from './MoviesCarousel.module.css'
 
 
 const MoviesCarousel = () => {

@@ -25,6 +25,4 @@ const movieService = {
     getPopularMovies: () => axiosService.get(`${baseURl}${urls.popularMovies}`)
 };
 
-
-
 export {movieService};

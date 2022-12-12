@@ -1,20 +1,18 @@
 import {useDispatch, useSelector} from "react-redux";
+import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 
-import {movieActions} from "../../redux/slices/movie.slice";
-import {Movie} from "../Movie/Movie";
-import css from './Movies.module.css'
 import {PaginationForMovies} from "../PaginationForMovies/PaginationForMovies";
 import {MoviesCarousel} from "../MoviesCarousel/MoviesCarousel";
-import {useNavigate, useParams} from "react-router-dom";
-
+import {movieActions} from "../../redux/slices";
+import {Movie} from "../Movie/Movie";
+import css from './Movies.module.css'
 
 
 const Movies = () => {
-
     const {page: currentPage} = useParams()
 
-    const [page,setPage] = useState(currentPage);
+    const [page, setPage] = useState(currentPage);
 
     const {movies} = useSelector(state => state.movieReducer)
 

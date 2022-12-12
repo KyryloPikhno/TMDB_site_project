@@ -1,7 +1,7 @@
 import {MoviesWithGenre} from "../../components/MoviesWithGenre/MoviesWithGenre";
 
-const MoviesWithGenrePage = () => {
 
+const MoviesWithGenrePage = () => {
 
     return (
         <div>

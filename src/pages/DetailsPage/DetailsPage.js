@@ -1,7 +1,7 @@
 import {Details} from "../../components";
 
-const DetailsPage = () => {
 
+const DetailsPage = () => {
 
     return (
         <div>

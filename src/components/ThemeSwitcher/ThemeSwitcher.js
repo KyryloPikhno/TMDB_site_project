@@ -11,21 +11,21 @@ const ThemeSwitcher = () => {
 
     const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    const [theme, setTheme] = useLocalStorage('theme',defaultDark ? 'dark' : 'light');
+    const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
 
-    const switchTheme = () =>{
-        const newTheme = theme === 'light'? 'dark':'light'
+    const switchTheme = () => {
+        const newTheme = theme === 'light' ? 'dark' : 'light'
         setTheme(newTheme)
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(themeActions.newTheme(theme))
-    },[dispatch, theme])
+    }, [dispatch, theme])
 
     return (
-        <div className={theme === 'dark'? css.box : css.lightBox}>
+        <div className={theme === 'dark' ? css.box : css.lightBox}>
             <button onClick={switchTheme}>
-                switch to {theme === 'light' ? 'dark':'light'}
+                switch to {theme === 'light' ? 'dark' : 'light'}
             </button>
         </div>
     );

@@ -16,9 +16,9 @@ const colors = {
 };
 
 const Stars = ({vote_average}) => (
-
     <div>
-        <PrettyRating  value={vote_average} icons={icons.star} setColors={colors.star} max={10}  array={colors.star} colors={colors.star}/>
+        <PrettyRating value={vote_average} icons={icons.star} setColors={colors.star} max={10} array={colors.star}
+                      colors={colors.star}/>
     </div>
 );
 

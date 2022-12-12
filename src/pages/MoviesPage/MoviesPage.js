@@ -1,7 +1,7 @@
 import {Movies} from "../../components";
 
-const MoviesPage = () => {
 
+const MoviesPage = () => {
 
     return (
         <div>

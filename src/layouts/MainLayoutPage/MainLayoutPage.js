@@ -4,8 +4,8 @@ import {Header} from "../../components/Header/Header";
 import {Footer} from "../../components";
 import css from './MainLayoutPage.module.css'
 
-const MainLayoutPage = () => {
 
+const MainLayoutPage = () => {
 
     return (
         <div className={css.container}>
