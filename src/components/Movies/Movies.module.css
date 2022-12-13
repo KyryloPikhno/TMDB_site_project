@@ -19,7 +19,6 @@
 }
 
 .wrap{
-    /*height: 2200px;*/
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -31,6 +30,16 @@
     .container{
         border: 2px solid greenyellow;
         width: 100vw;
+        margin-left: 0;
 
     }
+
+    .carouselContainer{
+        width: 100vw;
+    }
+
+    .wrap{
+        align-items: center;
+    }
 }
+
