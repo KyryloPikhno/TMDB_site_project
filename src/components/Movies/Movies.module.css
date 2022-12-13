@@ -26,3 +26,11 @@
     align-items: center;
     gap: 10px;
 }
+
+@media screen and (max-width: 600px){
+    .container{
+        border: 2px solid greenyellow;
+        width: 100vw;
+
+    }
+}
