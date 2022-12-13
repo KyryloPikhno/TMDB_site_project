@@ -28,10 +28,12 @@
 
 @media screen and (max-width: 600px){
     .container{
-        border: 2px solid greenyellow;
+        /*border: 2px solid greenyellow;*/
         width: 100vw;
         margin-left: 0;
-
+        justify-content: center;
+        height: 100%;
+        gap:30px;
     }
 
     .carouselContainer{

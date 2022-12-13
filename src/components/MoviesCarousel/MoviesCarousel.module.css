@@ -105,6 +105,10 @@
     .container {
         width: 100vw;
     }
+
+    .container .carousel{
+        gap:46px ;
+    }
 }
 
 

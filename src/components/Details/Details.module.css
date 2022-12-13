@@ -6,7 +6,6 @@
     gap: 10px;
 }
 
-
 .backdrop{
     width: 100%;
 }
@@ -76,4 +75,20 @@
 
 .badges div:hover{
     background: coral;
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        width: 100vw;
+    }
+
+    .badges{
+        top: 300px;
+    }
+
+    .badges div{
+        width: 69px;
+        height: 13px;
+        font-size: 10px;
+    }
 }
