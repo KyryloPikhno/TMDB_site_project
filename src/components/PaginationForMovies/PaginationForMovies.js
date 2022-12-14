@@ -4,8 +4,8 @@ import Pagination from "@mui/material/Pagination"
 import css from './PagonationForMovies.module.css'
 
 
-const PaginationForMovies = ({totalPages}) => {
-    const [query, setQuery] = useSearchParams({page:'1'});
+const PaginationForMovies = ({totalPages, currentPage}) => {
+    const [query, setQuery] = useSearchParams({page: '1'});
 
     const handleChange = (e, page) => {
         e.preventDefault();
@@ -25,7 +25,7 @@ const PaginationForMovies = ({totalPages}) => {
 
     return (
         <div className={css.container}>
-            <Pagination count={totalPages} color="standard" onChange={handleChange}></Pagination>
+            <Pagination count={totalPages} color="standard" onChange={handleChange} page={currentPage}></Pagination>
         </div>
     );
 };

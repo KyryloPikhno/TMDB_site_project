@@ -1,6 +1,6 @@
 import {Route, Routes, Navigate} from "react-router-dom";
 
-import {MoviesPage, NotFoundPage, MoviesWithGenrePage, MoviesBySearchPage, DetailsPage} from "./pages";
+import {DetailsPage, MoviesPage, NotFoundPage} from "./pages";
 import {MainLayoutPage} from "./layouts/MainLayoutPage";
 
 
@@ -11,12 +11,8 @@ function App() {
             <Route path={'/'} element={<MainLayoutPage/>}>
                 <Route index element={<Navigate to={'/all_movies'}/>}/>
                 <Route path={'/all_movies'} element={<MoviesPage/>}/>
-                {/*<Route path={'/movies_with_genre=:name/:id/page=:page'} element={<MoviesWithGenrePage/>}/>*/}
-                {/*<Route path={'/movies_with_title=:title/page=:page'} element={<MoviesBySearchPage/>}/>*/}
-                {/*    <Route path={'/all_movies/page=:page/detailed_info_with_id=:id'} element={<DetailsPage/>}/>*/}
-                {/*    <Route path={'/movies_with_genre=:name/:id/page=:page/detailed_info_with_id=:id'} element={<DetailsPage/>}/>*/}
-                {/*    <Route path={'/movies_with_title=:title/page=:page/detailed_info_with_id=:id'} element={<DetailsPage/>}/>*/}
-            </Route>
+                <Route path={'/all_movies/detailed_info_with_id=:id'} element={<DetailsPage/>}/>
+                </Route>
             <Route path={'*'} element={<NotFoundPage/>}/>
         </Routes>
     );

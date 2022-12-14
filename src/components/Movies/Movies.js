@@ -6,16 +6,16 @@ import {PaginationForMovies} from "../PaginationForMovies/PaginationForMovies";
 import {movieActions} from "../../redux/slices";
 import {Movie} from "../Movie/Movie";
 import css from './Movies.module.css'
+import {MoviesCarousel} from "../MoviesCarousel/MoviesCarousel";
 
 
 const Movies = () => {
-    const [query, setQuery] = useSearchParams({page:'1'});
+    const [query] = useSearchParams({page:'1'});
 
-    const {movies} = useSelector(state => state.movieReducer)
+    const {movies,totalPages,currentPage} = useSelector(state => state.movieReducer)
 
     const dispatch = useDispatch();
 
-    const totalPages = movies.total_pages
 
     useEffect(() => {
         if (!query.get('query')) {
@@ -26,21 +26,16 @@ const Movies = () => {
         } else {
             dispatch(movieActions.search({page: query.get('page'), query: query.get('query')}))
         }
-    }, [query]);
-
-
-    // useEffect(() => {
-    //     dispatch(movieActions.getAll({page:query.get('page')}))
-    // }, [dispatch,query]);
+    }, [query, currentPage]);
 
     return (
         <div className={css.wrap}>
             <div className={css.carouselContainer}>
-                {/*<MoviesCarousel/>*/}
+                <MoviesCarousel/>
             </div>
-            {movies.results && <div className={css.container}>
-                {movies.results && movies.results.map(movie => <Movie key={movie.id} movie={movie}/>)}
-                <PaginationForMovies totalPages={totalPages} setQuery={setQuery}/>
+            {movies && <div className={css.container}>
+                {movies && movies.map(movie => <Movie key={movie.id} movie={movie}/>)}
+                <PaginationForMovies totalPages={totalPages} currentPage={currentPage}/>
             </div>}
         </div>
     );
