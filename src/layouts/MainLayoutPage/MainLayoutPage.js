@@ -13,12 +13,14 @@ const MainLayoutPage = () => {
     console.log(currentTheme);
 
     return (
-        <div className={currentTheme === 'dark'? css.container: css.lightContainer}>
-            <div>
-                <Header/>
-            </div>
-            <div>
-                <Outlet/>
+        <div className={currentTheme === 'dark' ? css.container : css.lightContainer}>
+            <div className={css.box}>
+                <div>
+                    <Header/>
+                </div>
+                <div>
+                    <Outlet/>
+                </div>
             </div>
             <div>
                 <Footer/>

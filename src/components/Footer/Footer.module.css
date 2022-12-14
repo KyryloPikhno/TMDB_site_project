@@ -1,6 +1,6 @@
 .footer{
     color: white;
-    width: 886px;
+    /*width: 886px;*/
     height: 200px;
     border-top: 2px solid orange;
     display: flex;
@@ -22,13 +22,13 @@
     width: 40px;
 }
 
-@media screen and (max-width: 600px){
+/*@media screen and (max-width: 600px){*/
 
-    .box{
-        margin-left: 110px;
-    }
+/*    .box{*/
+/*        margin-left: 110px;*/
+/*    }*/
 
-    .footer{
-        width: 100vw;
-    }
-}
+/*    .footer{*/
+/*        width: 100vw;*/
+/*    }*/
+/*}*/

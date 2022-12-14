@@ -3,10 +3,10 @@ import {useSearchParams} from "react-router-dom";
 import {useEffect} from "react";
 
 import {PaginationForMovies} from "../PaginationForMovies/PaginationForMovies";
+// import {MoviesCarousel} from "../MoviesCarousel/MoviesCarousel";
 import {movieActions} from "../../redux/slices";
 import {Movie} from "../Movie/Movie";
 import css from './Movies.module.css'
-import {MoviesCarousel} from "../MoviesCarousel/MoviesCarousel";
 
 
 const Movies = () => {
@@ -15,7 +15,6 @@ const Movies = () => {
     const {movies,totalPages,currentPage} = useSelector(state => state.movieReducer)
 
     const dispatch = useDispatch();
-
 
     useEffect(() => {
         if (!query.get('query')) {
@@ -31,7 +30,7 @@ const Movies = () => {
     return (
         <div className={css.wrap}>
             <div className={css.carouselContainer}>
-                <MoviesCarousel/>
+                {/*<MoviesCarousel/>*/}
             </div>
             {movies && <div className={css.container}>
                 {movies && movies.map(movie => <Movie key={movie.id} movie={movie}/>)}
