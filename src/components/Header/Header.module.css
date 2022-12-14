@@ -1,5 +1,5 @@
 .header,.lightHeader{
-    width: 15%;
+    width: 320px;
     background: #323232;
     display: flex;
     justify-content: space-around;
