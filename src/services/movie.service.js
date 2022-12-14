@@ -4,7 +4,7 @@ import {baseURl, urls} from "../configs";
 
 
 const movieService = {
-    getAll: (page, genreId) => axiosService.get(`${baseURl}${urls.movies}`,
+    getAll: (page= '1', genreId) => axiosService.get(`${baseURl}${urls.movies}`,
         {
             params: {
                 with_genres: genreId,
