@@ -5,8 +5,6 @@ import {movieService} from "../../services";
 
 const initialState = {
     movies: [],
-    moviesByGenre: [],
-    moviesBySearch: [],
     trailers: {},
     popularMovies: [],
     page: 1,
@@ -16,7 +14,7 @@ const initialState = {
 
 const getAll = createAsyncThunk(
     'movieSlice/getAll',
-    async ({page}, {rejectWithValue}) => {
+    async ({page,genre}, {rejectWithValue}) => {
         try {
             const {data} = await movieService.getAll(page)
             return data
@@ -26,23 +24,11 @@ const getAll = createAsyncThunk(
     }
 );
 
-const getByGenre = createAsyncThunk(
-    'movieSlice/getByGenre',
-    async ({page, id}, {rejectWithValue}) => {
-        try {
-            const {data} = await movieService.getAll(page, id)
-            return data
-        } catch (e) {
-            return rejectWithValue(e.response.data)
-        }
-    }
-);
-
 const search = createAsyncThunk(
     'movieSlice/search',
-    async ({page, title}, {rejectWithValue}) => {
+    async ({page, query}, {rejectWithValue}) => {
         try {
-            const {data} = await movieService.search(page, title)
+            const {data} = await movieService.search(page, query)
             return data
         } catch (e) {
             return rejectWithValue(e.response.data)
@@ -87,8 +73,6 @@ const movieSlice = createSlice({
         builder
             .addCase(getAll.fulfilled, (state, action) => {
                 state.movies = action.payload
-                state.moviesByGenre = []
-                state.moviesBySearch = []
                 state.error = null
                 state.loading = false
             })
@@ -100,25 +84,21 @@ const movieSlice = createSlice({
                 state.loading = true
                 state.error = null
             })
-            .addCase(getByGenre.fulfilled, (state, action) => {
-                state.moviesByGenre = action.payload
-                state.movies = []
-                state.moviesBySearch = []
-                state.error = null
-                state.loading = false
-            })
-            .addCase(getByGenre.rejected, (state, action) => {
-                state.error = action.payload
-                state.loading = false
-            })
-            .addCase(getByGenre.pending, (state) => {
-                state.loading = true
-                state.error = null
-            })
+            // .addCase(getByGenre.fulfilled, (state, action) => {
+            //     state.movies = action.payload
+            //     state.error = null
+            //     state.loading = false
+            // })
+            // .addCase(getByGenre.rejected, (state, action) => {
+            //     state.error = action.payload
+            //     state.loading = false
+            // })
+            // .addCase(getByGenre.pending, (state) => {
+            //     state.loading = true
+            //     state.error = null
+            // })
             .addCase(search.fulfilled, (state, action) => {
-                state.moviesBySearch = action.payload
-                state.moviesByGenre = []
-                state.movies = []
+                state.movies = action.payload
                 state.error = null
                 state.loading = false
             })
@@ -162,7 +142,6 @@ const {reducer: movieReducer, actions:{getPage}} = movieSlice;
 
 const movieActions ={
     getAll,
-    getByGenre,
     search,
     getPage,
     getTrailer,

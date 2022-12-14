@@ -1,7 +1,7 @@
 import {useSearchParams} from "react-router-dom";
+import { useSelector} from "react-redux";
 
 import css from './Genre.module.css'
-import {useSelector} from "react-redux";
 
 
 const Genre = ({genre}) => {
@@ -10,6 +10,8 @@ const Genre = ({genre}) => {
     const {currentTheme} = useSelector(state => state.themeReducer);
 
     const [query,setQuery] = useSearchParams()
+
+    // const dispatch = useDispatch();
 
     // const genreName = name.split(" ").join("")
     // const genreId = id.toString()
