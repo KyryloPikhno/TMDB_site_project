@@ -12,9 +12,9 @@
     transition: 0.3s;
 }
 
-.box:hover,.lightBox:hover{
-    width: 122px;
-}
+/*.box:hover,.lightBox:hover{*/
+/*    width: 122px;*/
+/*}*/
 
 .lightBox{
     color: #1d1d1d;

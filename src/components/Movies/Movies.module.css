@@ -8,10 +8,12 @@
     width: 1200px;
     margin-left: 380px;
     /*width: 100vw;*/
+    background: #1d1d1d;
+    position: static;
 }
 
 .container{
-    width: 1200px;
+    /*width: 1200px;*/
     display: flex;
     flex-wrap: wrap;
     gap: 10px;

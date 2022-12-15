@@ -1,6 +1,6 @@
-html,body{
-    width: 100vw;
-}
+/*html,body{*/
+/*    width: 100vw;*/
+/*}*/
 
 html{
     scroll-behavior: smooth;
@@ -16,13 +16,16 @@ html{
 .container,.lightContainer{
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    background: #1d1d1d;
+    /*gap: 10px;*/
     transition: 0.3s;
+    background: #1d1d1d;
+
 }
 
 .box{
     display: flex;
+    /*max-width: 2000px;*/
+    /*min-width: 1000px;*/
     gap: 20px;
 }
 

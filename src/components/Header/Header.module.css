@@ -10,6 +10,7 @@
     border-bottom: 2px solid orange;
     height: 100vh;
     position: fixed;
+    z-index: 3;
 }
 
 .imgBox{
