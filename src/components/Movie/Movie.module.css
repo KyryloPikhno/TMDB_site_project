@@ -1,4 +1,5 @@
 .card,.lightCard{
+    border-radius: 8px;
     background: #353535;
     color: #d6d6d6;
     text-decoration: none;
@@ -27,6 +28,8 @@
 }
 
 .imgBox {
+    border-radius: 8px;
+
     width: 200px;
     height: 300px;
     display: flex;
@@ -35,6 +38,7 @@
 }
 
 .img{
+    border-radius: 8px;
     width: 200px;
 }
 

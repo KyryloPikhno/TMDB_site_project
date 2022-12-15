@@ -1,12 +1,14 @@
 .input,.lightInput{
     box-sizing: border-box;
     background: #616161;
-    border: 1px solid white;
+    /*border: 1px solid white;*/
     margin-right: 5px;
     text-align: center;
     color: #ffffff;
-    height: 25px;
-    /*width: 400px;*/
+    height: 45px;
+    border: none;
+    border-radius: 8px;
+    width: 170px;
 }
 
 .lightInput{
@@ -21,8 +23,9 @@
     color: white;
     width: 65px;
     border: 1px solid white;
-    height: 25px;
+    height: 45px;
     transition: 1s;
+    border-radius: 8px;
 }
 
 .noValidButton{

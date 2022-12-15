@@ -1,4 +1,4 @@
-import {useSearchParams} from "react-router-dom";
+import {useLocation, useSearchParams} from "react-router-dom";
 import { useSelector} from "react-redux";
 
 import css from './Genre.module.css'
@@ -8,6 +8,9 @@ const Genre = ({genre}) => {
     const {currentTheme} = useSelector(state => state.themeReducer);
 
     const [query,setQuery] = useSearchParams()
+
+    // const location = useLocation();
+    // console.log(location.pathname);
 
     return (
         <div className={currentTheme === 'dark' ? css.box : css.lightBox}

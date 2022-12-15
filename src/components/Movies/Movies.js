@@ -10,9 +10,9 @@ import css from './Movies.module.css'
 
 
 const Movies = () => {
-    const [query] = useSearchParams({page:'1'});
+    const [query] = useSearchParams({page: '1'});
 
-    const {movies,totalPages,currentPage} = useSelector(state => state.movieReducer)
+    const {movies, totalPages, currentPage} = useSelector(state => state.movieReducer)
 
     const dispatch = useDispatch();
 
@@ -34,8 +34,10 @@ const Movies = () => {
             </div>
             {movies && <div className={css.container}>
                 {movies && movies.map(movie => <Movie key={movie.id} movie={movie}/>)}
-                <PaginationForMovies totalPages={totalPages} currentPage={currentPage}/>
             </div>}
+            <div className={css.pagination}>
+                <PaginationForMovies totalPages={totalPages} currentPage={currentPage}/>
+            </div>
         </div>
     );
 };

@@ -8,6 +8,8 @@
     flex-wrap: wrap;
     transition: 0.3s;
     border-bottom: 2px solid orange;
+    height: 100vh;
+    position: fixed;
 }
 
 .imgBox{
