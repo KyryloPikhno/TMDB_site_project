@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom";
 
 import {ThemeSwitcher} from "../ThemeSwitcher/ThemeSwitcher";
 import {SearchForm} from "../SearchForm/SearchForm";
+import {Sorter} from "../Sorter/Sorter";
 import {Genres} from "../Genres/Genres";
 import css from './Header.module.css'
 
@@ -32,6 +33,9 @@ const Header = () => {
             </div>
             <div>
                 <ThemeSwitcher/>
+            </div>
+            <div>
+                <Sorter/>
             </div>
         </div>
     );

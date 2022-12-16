@@ -26,7 +26,7 @@ html{
     display: flex;
     /*max-width: 2000px;*/
     /*min-width: 1000px;*/
-    gap: 20px;
+    /*gap: 20px;*/
 }
 
 .lightContainer{

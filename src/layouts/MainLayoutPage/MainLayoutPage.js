@@ -22,9 +22,9 @@ const MainLayoutPage = () => {
                     <Outlet/>
                 </div>
             </div>
-            {/*<div>*/}
-            {/*    <Footer/>*/}
-            {/*</div>*/}
+            <div>
+                <Footer/>
+            </div>
         </div>
     );
 };
