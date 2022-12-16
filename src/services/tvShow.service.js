@@ -3,7 +3,7 @@ import {axiosService} from "./axios.service";
 import {baseURl, urls} from "../configs";
 
 
-const showService = {
+const tvShowService = {
     getAll: (page = '1', genre) => axiosService.get(`${baseURl}${urls.shows}`,
         {
             params: {
@@ -21,4 +21,4 @@ const showService = {
 };
 
 
-export {showService};
+export {tvShowService};

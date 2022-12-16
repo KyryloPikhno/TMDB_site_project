@@ -1,0 +1,15 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.container button{
+    box-sizing: border-box;
+    background: black;
+    color: white;
+    width: 110px;
+    border: 1px solid white;
+    height: 25px;
+    border-radius: 8px;
+}

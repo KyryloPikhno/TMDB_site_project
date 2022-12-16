@@ -15,10 +15,17 @@ const PaginationForMovies = ({totalPages, currentPage}) => {
         } else if (query.get('with_genres')) {
             setQuery(value => ({
                 page,
-                with_genres: query.get('with_genres').toString()
+                with_genres: query.get('with_genres').toString(),
+            }));
+        } else if (query.get('sort_by')) {
+            setQuery(value => ({
+                page,
+                sort_by: query.get('sort_by')
             }));
         } else {
-            setQuery(value => ({page}));
+            setQuery(value => ({
+                page,
+            }));
         }
         window.scrollTo(0, 0);
     };

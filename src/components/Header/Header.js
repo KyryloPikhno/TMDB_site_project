@@ -32,10 +32,10 @@ const Header = () => {
                 <Genres/>
             </div>
             <div>
-                <ThemeSwitcher/>
+                <Sorter/>
             </div>
             <div>
-                <Sorter/>
+                <ThemeSwitcher/>
             </div>
         </div>
     );

@@ -5,3 +5,4 @@ export * from './PaginationForMovies/PaginationForMovies';
 export * from './Movie/Movie';
 export * from './Movies/Movies';
 export * from './Stars/Stars';
+export * from './tvShows/tvShows'
