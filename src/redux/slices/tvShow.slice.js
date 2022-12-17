@@ -15,9 +15,9 @@ const initialState = {
 
 const getAll = createAsyncThunk(
     'tvShowSlice/getAll',
-    async ({page, genre,sort}, {rejectWithValue}) => {
+    async ({page, genre, sort}, {rejectWithValue}) => {
         try {
-            const {data} = await tvShowService.getAll(page, genre,sort)
+            const {data} = await tvShowService.getAll(page, genre, sort)
             return data
         } catch (e) {
             return rejectWithValue(e.response.data)
@@ -39,7 +39,7 @@ const search = createAsyncThunk(
 
 // const getTrailer = createAsyncThunk(
 //     'tvShowsSlice/getTrailer',
-//     async ({tvShowId}, {rejectWithValue}) => {
+//     async ({}, {rejectWithValue}) => {
 //         try {
 //             const {data} = await tvShowService.getTrailer(tvShowId)
 //             return data
@@ -125,7 +125,8 @@ const {reducer: tvShowReducer, actions:{getPage}} = tvShowSlice;
 const tvShowActions ={
     getAll,
     search,
-    getPage
+    getPage,
+    // getTrailer
 }
 
 export {tvShowReducer, tvShowActions};

@@ -1,10 +1,10 @@
 import {useSearchParams} from "react-router-dom";
 import Pagination from "@mui/material/Pagination"
 
-import css from './PagonationForMovies.module.css'
+import css from './PaginationMain.module.css'
 
 
-const PaginationForMovies = ({totalPages, currentPage}) => {
+const PaginationMain = ({totalPages, currentPage}) => {
     const [query, setQuery] = useSearchParams({page: '1'});
 
     const handleChange = (e, page) => {
@@ -37,4 +37,4 @@ const PaginationForMovies = ({totalPages, currentPage}) => {
     );
 };
 
-export {PaginationForMovies};
+export {PaginationMain};

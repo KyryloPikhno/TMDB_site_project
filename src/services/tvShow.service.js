@@ -4,10 +4,11 @@ import {baseURl, urls} from "../configs";
 
 
 const tvShowService = {
-    getAll: (page = '1', genre) => axiosService.get(`${baseURl}${urls.shows}`,
+    getAll: (page = '1', genre,sort) => axiosService.get(`${baseURl}${urls.shows}`,
         {
             params: {
                 with_genres: genre,
+                sort_by: sort,
                 page,
             }
         }),
@@ -17,7 +18,11 @@ const tvShowService = {
                 query,
                 page,
             }
-        })
+        }),
+    // getTrailer: (id) => axiosService.get(`${baseURl}${urls.movie}/${id}/videos?`,
+    //     {
+    //         params: {}
+    //     }),
 };
 
 

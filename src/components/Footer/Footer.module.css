@@ -1,4 +1,4 @@
-.footer{
+.footer,.lightFooter{
     color: white;
     /*width: 1700px;*/
     width: 1200px;
@@ -9,6 +9,12 @@
     margin-left: 380px;
     /*border: 2px solid red;*/
     background: #1d1d1d;
+    transition: 0.3s;
+}
+
+.lightFooter{
+    background: grey;
+    transition: 0.3s;
 }
 
 .box{
@@ -22,7 +28,7 @@
     padding-right: 5px;
 }
 
-.footer img {
+.footer img ,.lightFooter img{
     width: 40px;
 }
 

@@ -5,7 +5,7 @@ import {useEffect, useRef} from "react";
 import {orange} from "@mui/material/colors";
 
 import {movieActions} from "../../redux/slices";
-import {Movie} from "../Movie/Movie";
+import {Card} from "../Card/Card";
 import css from './MoviesCarousel.module.css'
 
 
@@ -38,7 +38,7 @@ const MoviesCarousel = () => {
                 <ArrowBackIosNewIcon fontSize="large" sx={{color: orange[500]}}/>
             </button>
             <div className={css.carousel} ref={carousel}>
-                {popularMovies.results && popularMovies.results.map(movie => <Movie key={movie.id} movie={movie}/>)}
+                {popularMovies.results && popularMovies.results.map(movie => <Card key={movie.id} movie={movie}/>)}
             </div>
             <button onClick={handleRightClick}>
                 <ArrowForwardIosIcon fontSize="large" sx={{color: orange[500]}}/>

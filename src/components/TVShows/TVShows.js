@@ -4,13 +4,17 @@ import {useEffect} from "react";
 
 
 import {tvShowActions} from "../../redux/slices";
-import css from './Movies.module.css'
+import {PaginationMain} from "../PaginationMain/PaginationMain";
+import {Card} from "../Card/Card";
+import css from './TVShows.module.css'
 
 
-const TvShows = () => {
+const TVShows = () => {
+    const {currentTheme} = useSelector(state => state.themeReducer);
+
     const [query] = useSearchParams({page: '1'});
 
-    const {movies, totalPages, currentPage} = useSelector(state => state.movieReducer)
+    const {tvShows, totalPages, currentPage} = useSelector(state => state.tvShowReducer)
 
     const dispatch = useDispatch();
 
@@ -18,7 +22,6 @@ const TvShows = () => {
         if (query.get('sort_by')) {
             dispatch(tvShowActions.getAll({
                 page: query.get('page'),
-                genre: query.get('with_genres'),
                 sort: query.get('sort_by')
             }));
         }
@@ -37,17 +40,17 @@ const TvShows = () => {
     }, [query, currentPage]);
 
     return (
-        <div className={css.wrap}>
-            {/*<div className={css.carouselContainer}>*/}
-            {/*    /!*<MoviesCarousel/>*!/*/}
-            {/*</div>*/}
-            {/*{movies && <div className={css.container}>*/}
-            {/*    {movies && movies.map(movie => <Movie key={movie.id} movie={movie}/>)}*/}
-            {/*</div>}*/}
-            {/*<div className={css.pagination}>*/}
-            {/*    <PaginationForMovies totalPages={totalPages} currentPage={currentPage}/>*/}
-            {/*</div>*/}
+        <div className={currentTheme ==='dark' ? css.wrap : css.lightWrap}>
+            <div className={css.carouselContainer}>
+                {/*<MoviesCarousel/>*/}
+            </div>
+            {tvShows && <div className={css.container}>
+                {tvShows && tvShows.map(value => <Card key={value.id} value={value}/>)}
+            </div>}
+            <div className={css.pagination}>
+                <PaginationMain totalPages={totalPages} currentPage={currentPage}/>
+            </div>
         </div>
     );
 };
-export {TvShows};
+export {TVShows};

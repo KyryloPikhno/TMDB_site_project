@@ -1,11 +1,11 @@
-import {TvShows} from "../../components";
+import {TVShows} from "../../components";
 
 
 const TvShowsPage = () => {
 
     return (
         <div>
-            <TvShows/>
+            <TVShows/>
         </div>
     );
 };

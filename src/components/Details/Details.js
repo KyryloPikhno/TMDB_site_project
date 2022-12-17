@@ -20,6 +20,7 @@ const Details = () => {
         genre_ids,
         original_language,
         original_title,
+        original_name,
         overview,
         popularity,
         poster_path,
@@ -62,7 +63,7 @@ const Details = () => {
                 <div className={css.info}>
                     <h1 className={css.title}>{title}</h1>
                     <p>Original language: {original_language}</p>
-                    <p>Original title: {original_title}</p>
+                    <p>Original title: {original_title||original_name}</p>
                     <p>Release date: {release_date}</p>
                     <p>Age limit: {adult ? 'For older 18' : 'for family viewing'}</p>
                     <p>Id: {id}</p>

@@ -1,4 +1,4 @@
-import { useSearchParams} from "react-router-dom";
+import {createSearchParams, useLocation, useNavigate, useSearchParams} from "react-router-dom";
 import {joiResolver} from "@hookform/resolvers/joi";
 import { useSelector} from "react-redux";
 import {useForm} from "react-hook-form";
@@ -8,8 +8,6 @@ import css from './SearchForm.module.css'
 
 
 const SearchForm = () => {
-    const [query,setQuery] = useSearchParams({page:'3'})
-
     const {currentTheme} = useSelector(state => state.themeReducer);
 
     const {handleSubmit, register, reset, formState: {errors, isValid}} = useForm({
@@ -17,12 +15,22 @@ const SearchForm = () => {
         mode: 'all'
     })
 
+    const navigate = useNavigate()
+
+    const location =useLocation()
+
+    const currentPath = location.pathname.split('/')[1]
+
     const submit = ({query}) => {
-        if (query) {
-            setQuery({query: query, page: '1'})
-        }
+        navigate({
+            pathname: currentPath,
+            search: createSearchParams({
+                page: '1',
+                query
+            }).toString()
+        });
         reset()
-    }
+    };
 
     return (
         <form onSubmit={handleSubmit(submit)}>

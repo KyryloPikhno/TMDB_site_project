@@ -1,4 +1,4 @@
-import {useLocation, useSearchParams} from "react-router-dom";
+import {createSearchParams, useLocation, useNavigate} from "react-router-dom";
 import { useSelector} from "react-redux";
 
 import css from './Genre.module.css'
@@ -7,17 +7,25 @@ import css from './Genre.module.css'
 const Genre = ({genre}) => {
     const {currentTheme} = useSelector(state => state.themeReducer);
 
-    const [query,setQuery] = useSearchParams()
+    const navigate = useNavigate()
 
-    // const location = useLocation();
-    // console.log(location.pathname);
+    const location = useLocation()
+
+    const currentPath = '/' + location.pathname.split('/')[1]
+
+    const linker = () => {
+        navigate({
+            pathname: currentPath,
+            search: createSearchParams({
+                page: '1',
+                with_genres: genre.id
+            }).toString()
+        });
+    };
 
     return (
         <div className={currentTheme === 'dark' ? css.box : css.lightBox}
-             onClick={() => setQuery({
-                 page: '1',
-                 with_genres: genre.id.toString()
-             })}>
+             onClick={() => linker()}>
             <div>{genre.name}</div>
         </div>
     );

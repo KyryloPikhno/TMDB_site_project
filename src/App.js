@@ -11,9 +11,10 @@ function App() {
             <Route path={'/'} element={<MainLayoutPage/>}>
                 <Route index element={<Navigate to={'/all_movies'}/>}/>
                 <Route path={'/all_movies'} element={<MoviesPage/>}/>
-                <Route path={'/all_TV-shows'} element={<TvShowsPage/>}/>
                 <Route path={'/all_movies/detailed_info_with_id=:id'} element={<DetailsPage/>}/>
-                </Route>
+                <Route path={'/all_TV-shows'} element={<TvShowsPage/>}/>
+                <Route path={'/all_TV-shows/detailed_info_with_id=:id'} element={<DetailsPage/>}/>
+            </Route>
             <Route path={'*'} element={<NotFoundPage/>}/>
         </Routes>
     );

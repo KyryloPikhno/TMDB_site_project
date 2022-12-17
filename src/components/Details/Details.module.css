@@ -1,9 +1,10 @@
 .container{
     color: #d6d6d6;
-    width: 886px;
+    width: 880px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-left: 480px;
 }
 
 .backdrop{

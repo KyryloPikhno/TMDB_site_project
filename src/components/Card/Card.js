@@ -4,20 +4,20 @@ import {Link} from "react-router-dom";
 import {Badge} from "../Badge/Badge";
 import {Stars} from "../Stars/Stars";
 import {urls} from "../../configs";
-import css from './Movie.module.css'
+import css from './Card.module.css'
 
 
-const Movie = ({movie}) => {
+const Card = ({value}) => {
     const {genres} = useSelector(state => state.genreReducer)
 
     const {currentTheme} = useSelector(state => state.themeReducer);
 
-    const {id, title, vote_average, poster_path, genre_ids} = movie
+    const {id, title,name, vote_average, poster_path, genre_ids} = value
 
     const badges = genres.filter(genre => genre_ids.includes(genre.id)).map(value => value)
 
     return (
-        <Link className={currentTheme === 'dark'? css.card:css.lightCard} to={`detailed_info_with_id=${id}`} state={{...movie}} >
+        <Link className={currentTheme === 'dark'? css.card:css.lightCard} to={`detailed_info_with_id=${id}`} state={{...value}} >
             <div className={css.badgeContainer}>
                 {badges && badges.map(badge => <Badge key={badge.id} badge={badge}/>)}
             </div>
@@ -25,7 +25,7 @@ const Movie = ({movie}) => {
                 {poster_path && <img className={css.img} src={`${urls.image_path}${poster_path}`} alt={title}/>}
             </div>
             <div className={css.title}>
-                {title}
+                {title||name}
             </div>
             <div className={css.stars}>
                 <Stars vote_average={vote_average}/>
@@ -34,4 +34,4 @@ const Movie = ({movie}) => {
     );
 };
 
-export {Movie};
+export {Card};

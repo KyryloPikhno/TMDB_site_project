@@ -1,10 +1,10 @@
-.container{
+.container,.lightContainer{
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.container button{
+.container button,.lightContainer button{
     box-sizing: border-box;
     background: black;
     color: white;
@@ -12,4 +12,12 @@
     border: 1px solid white;
     height: 25px;
     border-radius: 8px;
+    transition: 0.3s;
+}
+
+.lightContainer button{
+    background: white;
+    color: black;
+    border: 1px solid black;
+    transition: 0.3s;
 }

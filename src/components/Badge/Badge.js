@@ -1,17 +1,27 @@
-import {useNavigate} from "react-router-dom";
+import {createSearchParams, useLocation, useNavigate} from "react-router-dom";
 
 import css from './Badge.module.css';
 
 
 const Badge = ({badge}) => {
-    const genreName = badge.name.split(" ").join("")
-
-    const genreId = badge.id.toString()
-
     const navigate = useNavigate()
 
+    const location = useLocation()
+
+    const currentPath = '/' + location.pathname.split('/')[1]
+
+    const linker = (id) => {
+        navigate({
+            pathname: currentPath,
+            search: createSearchParams({
+                page: '1',
+                with_genres: id
+            }).toString()
+        });
+    };
+
     return (
-        <div className={css.badge} onClick={() => navigate(`/movies_with_genre=${genreName}/${genreId}/page=1`)}>
+        <div className={css.badge} onClick={() => linker(badge.id)}>
             {badge.name}
         </div>
     );
