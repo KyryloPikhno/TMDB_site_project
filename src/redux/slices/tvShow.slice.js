@@ -118,7 +118,7 @@ const tvShowSlice = createSlice({
                 state.error = null
             })
             .addCase(getSimilarTvShows.fulfilled, (state, action) => {
-                state.similarTVShows = action.payload
+                state.similarTVShows = action.payload.results
                 state.error = null
                 state.loading = false
             })

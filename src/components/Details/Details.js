@@ -39,7 +39,6 @@ const Details = () => {
     useEffect(() => {
         if (original_name !== undefined) {
             dispatch(tvShowActions.getTrailer({id}))
-
         } else {
             dispatch(movieActions.getTrailer({id}))
         }

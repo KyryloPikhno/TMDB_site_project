@@ -2,12 +2,12 @@ import {useDispatch, useSelector} from "react-redux";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import {useEffect, useRef} from "react";
+import {useLocation} from "react-router-dom";
 import {orange} from "@mui/material/colors";
 
 import {movieActions, tvShowActions} from "../../redux/slices";
 import {Card} from "../Card/Card";
 import css from './MoviesAndShowsCarousel.module.css'
-import {useLocation} from "react-router-dom";
 
 
 const MoviesAndShowsCarousel = ({id}) => {
@@ -32,7 +32,7 @@ const MoviesAndShowsCarousel = ({id}) => {
         if (currentPath === '/all_TV-shows') {
             dispatch(tvShowActions.getSimilarTvShows({id}))
         }
-    }, [dispatch, id]);
+    }, [id, dispatch, currentPath]);
 
     const handleLeftClick = (e) => {
         e.preventDefault();
@@ -45,22 +45,38 @@ const MoviesAndShowsCarousel = ({id}) => {
         carousel.current.scrollLeft += carousel.current.offsetWidth;
     };
 
-    // if (!similarTVShows.results || !similarTVShows.results.length) return null;
-    //
-    // if (!similarMovies.results || !similarMovies.results.length) return null;
+    if (!similarTVShows|| !similarTVShows.length) return null;
+
+    if (!similarMovies || !similarMovies.length) return null;
 
 
     return (
-        <div className={css.container}>
-            <button onClick={handleLeftClick}>
-                <ArrowBackIosNewIcon fontSize="large" sx={{color: orange[500]}}/>
-            </button>
-            <div className={css.carousel} ref={carousel}>
-                {similarMovies.results && similarMovies.results.map(value => <Card key={value.id} value={value}/>)}
-            </div>
-            <button onClick={handleRightClick}>
-                <ArrowForwardIosIcon fontSize="large" sx={{color: orange[500]}}/>
-            </button>
+        <div>
+            {currentPath === '/all_TV-shows' &&
+                <div className={css.container}>
+                    <button onClick={handleLeftClick}>
+                        <ArrowBackIosNewIcon fontSize="large" sx={{color: orange[500]}}/>
+                    </button>
+                    <div className={css.carousel} ref={carousel}>
+                        {similarTVShows && similarTVShows.map(value => <Card key={value.id} value={value}/>)}
+                    </div>
+                    <button onClick={handleRightClick}>
+                        <ArrowForwardIosIcon fontSize="large" sx={{color: orange[500]}}/>
+                    </button>
+                </div>}
+            ||
+            {currentPath === '/all_movies' &&
+                <div className={css.container}>
+                    <button onClick={handleLeftClick}>
+                        <ArrowBackIosNewIcon fontSize="large" sx={{color: orange[500]}}/>
+                    </button>
+                    <div className={css.carousel} ref={carousel}>
+                        {similarMovies.length !== 0 && similarMovies.map(value => <Card key={value.id} value={value}/>)}
+                    </div>
+                    <button onClick={handleRightClick}>
+                        <ArrowForwardIosIcon fontSize="large" sx={{color: orange[500]}}/>
+                    </button>
+                </div>}
         </div>
     );
 };
