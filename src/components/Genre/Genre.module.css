@@ -10,6 +10,7 @@
     text-align: center;
     text-decoration: none;
     transition: 0.3s;
+    cursor: alias;
 }
 
 /*.box:hover,.lightBox:hover{*/
