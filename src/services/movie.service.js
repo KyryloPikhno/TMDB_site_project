@@ -7,9 +7,9 @@ const movieService = {
     getAll: (page = '1', genre, sort) => axiosService.get(`${baseURl}${urls.movies}`,
         {
             params: {
+                page,
                 with_genres: genre,
                 sort_by: sort,
-                page,
             }
         }),
     search: (page, query) => axiosService.get(`${baseURl}${urls.search}`,

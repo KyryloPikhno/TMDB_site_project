@@ -18,7 +18,7 @@ const Sorter = () => {
             pathname: currentPath,
             search: createSearchParams({
                 page: '1',
-                sort_by: value
+                sort_by: value,
             }).toString()
         });
     };

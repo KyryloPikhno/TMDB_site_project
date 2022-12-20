@@ -15,7 +15,7 @@ const TVShows = () => {
 
     const [query] = useSearchParams({page: '1'});
 
-    const {tvShows, totalPages, currentPage,loading} = useSelector(state => state.tvShowReducer)
+    const {tvShows, totalPages, currentPage, loading} = useSelector(state => state.tvShowReducer);
 
     const dispatch = useDispatch();
 

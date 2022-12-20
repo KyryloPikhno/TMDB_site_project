@@ -1,10 +1,11 @@
 .container{
     color: #d6d6d6;
-    width: 880px;
+    width: 1200px;
+    margin-left: 380px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-left: 480px;
+    background: #1d1d1d;
 }
 
 .backdrop{
@@ -59,10 +60,9 @@
     flex-wrap: wrap;
     position: absolute;
     left: 5px;
-    top: 470px;
+    top: 650px;
     display: flex;
     gap: 3px;
-    /*overflow-block: scroll;*/
 }
 
 .badges div{

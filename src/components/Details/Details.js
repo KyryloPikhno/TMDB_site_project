@@ -1,8 +1,8 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useLocation} from "react-router-dom";
 import {useEffect} from "react";
-import Youtube from 'react-youtube';
 
+import {YouTubePlayer} from "../YouTubePlayer/YouTubePlayer";
 import {movieActions} from "../../redux/slices";
 import {Badge} from "../Badge/Badge";
 import {Stars} from "../Stars/Stars";
@@ -56,14 +56,14 @@ const Details = () => {
                     {badges && badges.map(badge => <Badge key={badge.id} badge={badge}/>)}
                 </div>
             </div>
-            <div className={currentTheme === 'dark'?  css.box : css.lightBox}>
+            <div className={currentTheme === 'dark' ? css.box : css.lightBox}>
                 <div className={css.wrap}>
                     {poster_path && <img className={css.poster} src={`${urls.image_path}${poster_path}`} alt={title}/>}
                 </div>
                 <div className={css.info}>
                     <h1 className={css.title}>{title}</h1>
                     <p>Original language: {original_language}</p>
-                    <p>Original title: {original_title||original_name}</p>
+                    <p>Original title: {original_title || original_name}</p>
                     <p>Release date: {release_date}</p>
                     <p>Age limit: {adult ? 'For older 18' : 'for family viewing'}</p>
                     <p>Id: {id}</p>
@@ -73,23 +73,7 @@ const Details = () => {
                     <p>Overview: {overview}</p>
                 </div>
             </div>
-            <div>
-                {trailers.results && trailers.results.length !== 0 && <Youtube videoId={trailers.results[0].key} opts={
-                    {
-                        width: '100%',
-                        height: '500px',
-                        playerVars: {
-                            autoplay: 2,
-                            controls: 0,
-                            cc_load_policy: 0,
-                            fs: 0,
-                            iv_load_policy: 0,
-                            modestbranding: 0,
-                            rel: 0,
-                            showinfo: 0,
-                        },
-                    }}/>}
-            </div>
+                <YouTubePlayer trailers={trailers}/>
         </div>
     );
 };

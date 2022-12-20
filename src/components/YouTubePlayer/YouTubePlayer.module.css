@@ -1,0 +1,33 @@
+.trailer_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.trailer {
+    position: relative;
+    width: 50%;
+}
+
+.trailer button {
+
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+    border: none;
+
+    position: absolute;
+    right: -50px;
+    top: -50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    background-color: black;
+    color: #777;
+}

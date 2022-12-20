@@ -4,7 +4,7 @@ import {baseURl, urls} from "../configs";
 
 
 const tvShowService = {
-    getAll: (page = '1', genre,sort) => axiosService.get(`${baseURl}${urls.shows}`,
+    getAll: (page = '1', genre, sort) => axiosService.get(`${baseURl}${urls.shows}`,
         {
             params: {
                 with_genres: genre,
