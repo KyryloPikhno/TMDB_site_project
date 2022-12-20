@@ -16,8 +16,6 @@ const TVShows = () => {
 
     const {tvShows, totalPages, currentPage, loading, error} = useSelector(state => state.tvShowReducer);
 
-    console.log(error);
-
     const dispatch = useDispatch();
 
     useEffect(() => {

@@ -5,7 +5,7 @@ import {tvShowService} from "../../services";
 
 const initialState = {
     tvShows: [],
-    trailers: {},
+    tvShowTrailer: {},
     popularTVShows: [],
     currentPage: 1,
     totalPages: 1,
@@ -37,17 +37,17 @@ const search = createAsyncThunk(
     }
 );
 
-// const getTrailer = createAsyncThunk(
-//     'tvShowsSlice/getTrailer',
-//     async ({}, {rejectWithValue}) => {
-//         try {
-//             const {data} = await tvShowService.getTrailer(tvShowId)
-//             return data
-//         } catch (e) {
-//             return rejectWithValue(e.response.data)
-//         }
-//     }
-// );
+const getTrailer = createAsyncThunk(
+    'tvShowsSlice/getTrailer',
+    async ({id}, {rejectWithValue}) => {
+        try {
+            const {data} = await tvShowService.getTrailer(id)
+            return data
+        } catch (e) {
+            return rejectWithValue(e.response.data)
+        }
+    }
+);
 
 // const getPopularTvShows = createAsyncThunk(
 //     'tvShowSlice/getPopularTvShows',
@@ -104,19 +104,19 @@ const tvShowSlice = createSlice({
                 state.loading = true
                 state.error = null
             })
-            // .addCase(getTrailer.fulfilled, (state, action) => {
-            //     state.trailers = action.payload
-            //     state.error = null
-            //     state.loading = false
-            // })
-            // .addCase(getTrailer.rejected, (state, action) => {
-            //     state.error = action.payload
-            //     state.loading = false
-            // })
-            // .addCase(getTrailer.pending, (state) => {
-            //     state.loading = true
-            //     state.error = null
-            // })
+            .addCase(getTrailer.fulfilled, (state, action) => {
+                state.tvShowTrailer = action.payload
+                state.error = null
+                state.loading = false
+            })
+            .addCase(getTrailer.rejected, (state, action) => {
+                state.error = action.payload
+                state.loading = false
+            })
+            .addCase(getTrailer.pending, (state) => {
+                state.loading = true
+                state.error = null
+            })
 
 });
 
@@ -126,7 +126,7 @@ const tvShowActions ={
     getAll,
     search,
     getPage,
-    // getTrailer
+    getTrailer
 }
 
 export {tvShowReducer, tvShowActions};

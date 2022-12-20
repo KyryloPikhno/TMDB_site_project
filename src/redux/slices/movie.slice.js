@@ -39,9 +39,9 @@ const search = createAsyncThunk(
 
 const getTrailer = createAsyncThunk(
     'movieSlice/getTrailer',
-    async ({movieId}, {rejectWithValue}) => {
+    async ({id}, {rejectWithValue}) => {
         try {
-            const {data} = await movieService.getTrailer(movieId)
+            const {data} = await movieService.getTrailer(id)
             return data
         } catch (e) {
             return rejectWithValue(e.response.data)

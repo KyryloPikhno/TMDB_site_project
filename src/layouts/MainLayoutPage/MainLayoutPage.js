@@ -1,17 +1,14 @@
 import {useSelector} from "react-redux";
 import {Outlet} from "react-router-dom";
 
+import {LinkButton} from "../../components/LinkButton/LinkButton";
 import {Header} from "../../components/Header/Header";
 import {Footer} from "../../components";
 import css from './MainLayoutPage.module.css'
-import {LinkButton} from "../../components/LinkButton/LinkButton";
 
 
 const MainLayoutPage = () => {
-
     const {currentTheme} = useSelector(state => state.themeReducer);
-
-    console.log(currentTheme);
 
     return (
         <div className={currentTheme === 'dark' ? css.container : css.lightContainer}>

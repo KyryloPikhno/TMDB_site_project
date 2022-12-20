@@ -19,7 +19,7 @@ const movieService = {
                 page
             }
         }),
-    getTrailer: (movieId) => axiosService.get(`${baseURl}${urls.movie}/${movieId}/videos?`,
+    getTrailer: (movieId) => axiosService.get(`${baseURl}${urls.movie}/${movieId}/videos`,
         {
             params: {}
         }),

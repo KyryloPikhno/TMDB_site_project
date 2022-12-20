@@ -19,10 +19,10 @@ const tvShowService = {
                 page,
             }
         }),
-    // getTrailer: (id) => axiosService.get(`${baseURl}${urls.movie}/${id}/videos?`,
-    //     {
-    //         params: {}
-    //     }),
+    getTrailer: (id) => axiosService.get(`${baseURl}${urls.tvShow}/${id}/videos`,
+        {
+            params: {}
+        }),
 };
 
 

@@ -3,7 +3,6 @@ import {useSearchParams} from "react-router-dom";
 import {useEffect} from "react";
 
 import {PaginationMain} from "../PaginationMain/PaginationMain";
-// import {MoviesCarousel} from "../MoviesCarousel/MoviesCarousel";
 import {movieActions} from "../../redux/slices";
 import {SkeletonUI} from "../SkeletonUI/SkeletonUI";
 import {Card} from "../Card/Card";
@@ -18,8 +17,6 @@ const Movies = () => {
     const {currentTheme} = useSelector(state => state.themeReducer);
 
     const dispatch = useDispatch();
-
-    console.log(error);
 
     useEffect(() => {
         if (query.get('sort_by')) {

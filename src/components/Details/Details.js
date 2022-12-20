@@ -2,13 +2,13 @@ import {useDispatch, useSelector} from "react-redux";
 import {useLocation} from "react-router-dom";
 import {useEffect} from "react";
 
+import {KeepMountedModal} from "../KeepMountedModal/KeepMountedModal";
 import {YouTubePlayer} from "../YouTubePlayer/YouTubePlayer";
-import {movieActions} from "../../redux/slices";
+import {movieActions, tvShowActions} from "../../redux/slices";
 import {Badge} from "../Badge/Badge";
 import {Stars} from "../Stars/Stars";
 import {urls} from "../../configs";
 import css from './Details.module.css';
-import {KeepMountedModal} from "../KeepMountedModal/KeepMountedModal";
 
 
 const Details = () => {
@@ -31,18 +31,24 @@ const Details = () => {
         vote_count,
     } = state;
 
-    const {trailers} = useSelector(state => state.movieReducer)
-
     const {currentTheme} = useSelector(state => state.themeReducer);
 
     const dispatch = useDispatch()
 
+    const tvShowId = id.toString()
+
     const movieId = id.toString()
 
     useEffect(() => {
-        dispatch(movieActions.getTrailer({movieId}))
+        if (original_name !== undefined) {
+            dispatch(tvShowActions.getTrailer({id: tvShowId}))
+
+        } else {
+            dispatch(movieActions.getTrailer({id: movieId}))
+        }
+
         window.scrollTo(0, 0);
-    }, [movieId])
+    }, [tvShowId, movieId]);
 
     const {genres} = useSelector(state => state.genreReducer)
 
@@ -60,7 +66,6 @@ const Details = () => {
             <div className={currentTheme === 'dark' ? css.box : css.lightBox}>
                 <div className={css.wrap}>
                     <KeepMountedModal poster_path={poster_path} title={title}/>
-                    {/*{poster_path && <img className={css.poster} src={`${urls.image_path}${poster_path}`} alt={title}/>}*/}
                 </div>
                 <div className={css.info}>
                     <h1 className={css.title}>{title}</h1>
@@ -75,7 +80,7 @@ const Details = () => {
                     <p>Overview: {overview}</p>
                 </div>
             </div>
-                <YouTubePlayer trailers={trailers}/>
+            <YouTubePlayer/>
         </div>
     );
 };

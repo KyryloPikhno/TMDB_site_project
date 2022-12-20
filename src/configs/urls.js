@@ -8,7 +8,8 @@ const urls = {
     popularMovies: '/movie/popular',
     image_path: 'https://image.tmdb.org/t/p/w500',
     shows:'/discover/tv',
-    searchTV: '/search/tv'
+    searchTV: '/search/tv',
+    tvShow:'/tv'
 };
 
 export {baseURl, urls};
