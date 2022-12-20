@@ -49,7 +49,7 @@ const Details = () => {
     const badges = genres.filter(genre => genre_ids.includes(genre.id)).map(item => item)
 
     return (
-        <div className={css.container}>
+        <div className={currentTheme === 'dark' ? css.container : css.containerLight}>
             <div className={css.backdropBox}>
                 {backdrop_path &&
                     <img className={css.backdrop} src={`${urls.image_path}${backdrop_path}`} alt={title}/>}

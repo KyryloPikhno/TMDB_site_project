@@ -2,12 +2,11 @@ import {useDispatch, useSelector} from "react-redux";
 import {useSearchParams} from "react-router-dom";
 import {useEffect} from "react";
 
-
 import {tvShowActions} from "../../redux/slices";
 import {PaginationMain} from "../PaginationMain/PaginationMain";
+import {SkeletonUI} from "../SkeletonUI/SkeletonUI";
 import {Card} from "../Card/Card";
 import css from './TVShows.module.css'
-import {SkeletonUI} from "../SkeletonUI/SkeletonUI";
 
 
 const TVShows = () => {
@@ -15,7 +14,9 @@ const TVShows = () => {
 
     const [query] = useSearchParams({page: '1'});
 
-    const {tvShows, totalPages, currentPage, loading} = useSelector(state => state.tvShowReducer);
+    const {tvShows, totalPages, currentPage, loading, error} = useSelector(state => state.tvShowReducer);
+
+    console.log(error);
 
     const dispatch = useDispatch();
 
@@ -40,8 +41,6 @@ const TVShows = () => {
     }, [query, currentPage]);
 
     return (
-
-        <div>
             <div className={currentTheme === 'dark' ? css.wrap : css.lightWrap}>
                 {
                     loading ?
@@ -57,20 +56,7 @@ const TVShows = () => {
                     <PaginationMain totalPages={totalPages} currentPage={currentPage}/>
                 </div>
             </div>
-
-        </div>
-
-        // <div className={currentTheme ==='dark' ? css.wrap : css.lightWrap}>
-        //     <div className={css.carouselContainer}>
-        //         {/*<MoviesCarousel/>*/}
-        //     </div>
-        //     {tvShows && <div className={css.container}>
-        //         {tvShows && tvShows.map(value => <Card key={value.id} value={value}/>)}
-        //     </div>}
-        //     <div className={css.pagination}>
-        //         <PaginationMain totalPages={totalPages} currentPage={currentPage}/>
-        //     </div>
-        // </div>
     );
 };
+
 export {TVShows};
