@@ -26,12 +26,6 @@
     width: 550px;
 }
 
-.poster{
-    width: 300px;
-    height: 445px;
-    cursor: pointer;
-}
-
 .info,.lightInfo{
     display: flex;
     flex-direction: column;

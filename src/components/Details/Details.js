@@ -8,6 +8,7 @@ import {Badge} from "../Badge/Badge";
 import {Stars} from "../Stars/Stars";
 import {urls} from "../../configs";
 import css from './Details.module.css';
+import {KeepMountedModal} from "../KeepMountedModal/KeepMountedModal";
 
 
 const Details = () => {
@@ -58,7 +59,8 @@ const Details = () => {
             </div>
             <div className={currentTheme === 'dark' ? css.box : css.lightBox}>
                 <div className={css.wrap}>
-                    {poster_path && <img className={css.poster} src={`${urls.image_path}${poster_path}`} alt={title}/>}
+                    <KeepMountedModal poster_path={poster_path} title={title}/>
+                    {/*{poster_path && <img className={css.poster} src={`${urls.image_path}${poster_path}`} alt={title}/>}*/}
                 </div>
                 <div className={css.info}>
                     <h1 className={css.title}>{title}</h1>

@@ -26,7 +26,7 @@ const Movies = () => {
                 sort: query.get('sort_by')
             }));
         }
-        if (!query.get('query')) {
+        if (!query.get('query') &&!query.get('sort_by')) {
             dispatch(movieActions.getAll({
                 page: query.get('page'),
                 genre: query.get('with_genres'),

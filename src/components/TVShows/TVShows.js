@@ -26,13 +26,12 @@ const TVShows = () => {
                 sort: query.get('sort_by')
             }));
         }
-        if (!query.get('query')) {
+        if (!query.get('query') && !query.get('sort_by')) {
             dispatch(tvShowActions.getAll({
                 page: query.get('page'),
                 genre: query.get('with_genres'),
             }));
-        }
-        else {
+        } else {
             dispatch(tvShowActions.search({
                 page: query.get('page'),
                 query: query.get('query'),
