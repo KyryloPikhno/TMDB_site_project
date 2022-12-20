@@ -6,3 +6,4 @@ export * from './Card/Card';
 export * from './Movies/Movies';
 export * from './Stars/Stars';
 export * from './TVShows/TVShows'
+export * from './NotFound/NotFound';

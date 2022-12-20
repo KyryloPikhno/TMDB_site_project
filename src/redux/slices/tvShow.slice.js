@@ -6,7 +6,7 @@ import {tvShowService} from "../../services";
 const initialState = {
     tvShows: [],
     tvShowTrailer: {},
-    popularTVShows: [],
+    similarTVShows: [],
     currentPage: 1,
     totalPages: 1,
     loading: false,
@@ -49,17 +49,17 @@ const getTrailer = createAsyncThunk(
     }
 );
 
-// const getPopularTvShows = createAsyncThunk(
-//     'tvShowSlice/getPopularTvShows',
-//     async (_, {rejectWithValue}) => {
-//         try {
-//             const {data} = await tvShowService.getPopularMovies()
-//             return data
-//         } catch (e) {
-//             return rejectWithValue(e.response.data)
-//         }
-//     }
-// );
+const getSimilarTvShows = createAsyncThunk(
+    'tvShowSlice/getSimilarTvShows',
+    async ({id}, {rejectWithValue}) => {
+        try {
+            const {data} = await tvShowService.getSimilar(id)
+            return data
+        } catch (e) {
+            return rejectWithValue(e.response.data)
+        }
+    }
+);
 
 
 const tvShowSlice = createSlice({
@@ -117,7 +117,19 @@ const tvShowSlice = createSlice({
                 state.loading = true
                 state.error = null
             })
-
+            .addCase(getSimilarTvShows.fulfilled, (state, action) => {
+                state.similarTVShows = action.payload
+                state.error = null
+                state.loading = false
+            })
+            .addCase(getSimilarTvShows.rejected, (state, action) => {
+                state.error = action.payload
+                state.loading = false
+            })
+            .addCase(getSimilarTvShows.pending, (state) => {
+                state.loading = true
+                state.error = null
+            })
 });
 
 const {reducer: tvShowReducer, actions:{getPage}} = tvShowSlice;
@@ -126,7 +138,8 @@ const tvShowActions ={
     getAll,
     search,
     getPage,
-    getTrailer
+    getTrailer,
+    getSimilarTvShows
 }
 
 export {tvShowReducer, tvShowActions};

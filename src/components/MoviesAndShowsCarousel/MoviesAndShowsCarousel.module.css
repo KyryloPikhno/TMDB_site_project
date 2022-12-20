@@ -1,8 +1,9 @@
 .container {
-    width: 886px;
+    width: 100%;
     display: flex;
     border-bottom: 2px solid orange;
     padding-bottom: 9px;
+    height: 300px;
 }
 
 .container .carousel {
@@ -75,41 +76,41 @@
 }
 
 
-.carousel div[class='Movie_title__HKvwH']{
-  font-size: 10px;
-}
+/*.carousel div[class='Movie_title__HKvwH']{*/
+/*  font-size: 10px;*/
+/*}*/
 
-.carousel div[class='Movie_badgeContainer__I-PlF']{
-    display: none;
-}
+/*.carousel div[class='Movie_badgeContainer__I-PlF']{*/
+/*    display: none;*/
+/*}*/
 
-.carousel div[class='Movie_stars__EGpUw']{
-    display: none;
-}
+/*.carousel div[class='Movie_stars__EGpUw']{*/
+/*    display: none;*/
+/*}*/
 
-.carousel div[class='Movie_imgBox__N7xbZ'],.carousel img[class='Movie_img__WUHrV'] {
-    width:122.4px ;
-}
+/*.carousel div[class='Movie_imgBox__N7xbZ'],.carousel img[class='Movie_img__WUHrV'] {*/
+/*    width:122.4px ;*/
+/*}*/
 
-.carousel a[class='Movie_card__KTxm8'] {
-    width:122.4px ;
-    height: 210px;
-}
+/*.carousel a[class='Movie_card__KTxm8'] {*/
+/*    width:122.4px ;*/
+/*    height: 210px;*/
+/*}*/
 
-.carousel a[class='Movie_lightCard__tQTUo'] {
-    width:122.4px ;
-    height: 210px;
-}
+/*.carousel a[class='Movie_lightCard__tQTUo'] {*/
+/*    width:122.4px ;*/
+/*    height: 210px;*/
+/*}*/
 
-@media screen and (max-width: 600px){
-    .container {
-        width: 100vw;
-    }
+/*@media screen and (max-width: 600px){*/
+/*    .container {*/
+/*        width: 100vw;*/
+/*    }*/
 
-    .container .carousel{
-        gap:46px ;
-    }
-}
+/*    .container .carousel{*/
+/*        gap:46px ;*/
+/*    }*/
+/*}*/
 
 
 

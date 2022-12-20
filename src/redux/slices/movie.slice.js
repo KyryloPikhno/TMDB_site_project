@@ -6,7 +6,7 @@ import {movieService} from "../../services";
 const initialState = {
     movies: [],
     trailers: {},
-    popularMovies: [],
+    similarMovies: [],
     currentPage: 1,
     totalPages: 1,
     loading: false,
@@ -49,11 +49,11 @@ const getTrailer = createAsyncThunk(
     }
 );
 
-const getPopularMovies = createAsyncThunk(
-    'movieSlice/getPopularMovies',
-    async (_, {rejectWithValue}) => {
+const getSimilarMovies = createAsyncThunk(
+    'movieSlice/getSimilarMovies',
+    async ({id}, {rejectWithValue}) => {
         try {
-            const {data} = await movieService.getPopularMovies()
+            const {data} = await movieService.getSimilar(id)
             return data
         } catch (e) {
             return rejectWithValue(e.response.data)
@@ -117,16 +117,16 @@ const movieSlice = createSlice({
                 state.loading = true
                 state.error = null
             })
-            .addCase(getPopularMovies.fulfilled, (state, action) => {
-                state.popularMovies = action.payload.results
+            .addCase(getSimilarMovies.fulfilled, (state, action) => {
+                state.similarMovies = action.payload.results
                 state.error = null
                 state.loading = false
             })
-            .addCase(getPopularMovies.rejected, (state, action) => {
+            .addCase(getSimilarMovies.rejected, (state, action) => {
                 state.error = action.payload
                 state.loading = false
             })
-            .addCase(getPopularMovies.pending, (state) => {
+            .addCase(getSimilarMovies.pending, (state) => {
                 state.loading = true
                 state.error = null
             })
@@ -139,7 +139,7 @@ const movieActions ={
     search,
     getPage,
     getTrailer,
-    getPopularMovies
+    getSimilarMovies
 }
 
 export {movieReducer, movieActions};

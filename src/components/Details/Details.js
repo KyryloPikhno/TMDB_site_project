@@ -9,6 +9,7 @@ import {Badge} from "../Badge/Badge";
 import {Stars} from "../Stars/Stars";
 import {urls} from "../../configs";
 import css from './Details.module.css';
+import {MoviesAndShowsCarousel} from "../MoviesAndShowsCarousel/MoviesAndShowsCarousel";
 
 
 const Details = () => {
@@ -35,20 +36,16 @@ const Details = () => {
 
     const dispatch = useDispatch()
 
-    const tvShowId = id.toString()
-
-    const movieId = id.toString()
-
     useEffect(() => {
         if (original_name !== undefined) {
-            dispatch(tvShowActions.getTrailer({id: tvShowId}))
+            dispatch(tvShowActions.getTrailer({id}))
 
         } else {
-            dispatch(movieActions.getTrailer({id: movieId}))
+            dispatch(movieActions.getTrailer({id}))
         }
 
         window.scrollTo(0, 0);
-    }, [tvShowId, movieId]);
+    }, [id]);
 
     const {genres} = useSelector(state => state.genreReducer)
 
@@ -81,6 +78,7 @@ const Details = () => {
                 </div>
             </div>
             <YouTubePlayer/>
+            <MoviesAndShowsCarousel id={id}/>
         </div>
     );
 };

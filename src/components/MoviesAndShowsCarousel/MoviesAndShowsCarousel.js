@@ -4,33 +4,51 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import {useEffect, useRef} from "react";
 import {orange} from "@mui/material/colors";
 
-import {movieActions} from "../../redux/slices";
+import {movieActions, tvShowActions} from "../../redux/slices";
 import {Card} from "../Card/Card";
-import css from './MoviesCarousel.module.css'
+import css from './MoviesAndShowsCarousel.module.css'
+import {useLocation} from "react-router-dom";
 
 
-const MoviesCarousel = () => {
-    const {popularMovies} = useSelector(state => state.movieReducer)
+const MoviesAndShowsCarousel = ({id}) => {
+    let {similarMovies} = useSelector(state => state.movieReducer)
+
+    let {similarTVShows} = useSelector(state => state.tvShowReducer)
+
+    console.log(similarTVShows);
+    console.log(similarMovies);
 
     const carousel = useRef(null);
+
+    const location = useLocation()
+    const currentPath = '/' + location.pathname.split('/')[1]
 
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(movieActions.getPopularMovies())
-    }, [dispatch])
+        if (currentPath === '/all_movies') {
+            dispatch(movieActions.getSimilarMovies({id}))
+        }
+        if (currentPath === '/all_TV-shows') {
+            dispatch(tvShowActions.getSimilarTvShows({id}))
+        }
+    }, [dispatch, id]);
 
     const handleLeftClick = (e) => {
         e.preventDefault();
         carousel.current.scrollLeft -= carousel.current.offsetWidth;
     };
+    console.log(currentPath);
 
     const handleRightClick = (e) => {
         e.preventDefault();
         carousel.current.scrollLeft += carousel.current.offsetWidth;
     };
 
-    if (!popularMovies.results || !popularMovies.results.length) return null;
+    // if (!similarTVShows.results || !similarTVShows.results.length) return null;
+    //
+    // if (!similarMovies.results || !similarMovies.results.length) return null;
+
 
     return (
         <div className={css.container}>
@@ -38,7 +56,7 @@ const MoviesCarousel = () => {
                 <ArrowBackIosNewIcon fontSize="large" sx={{color: orange[500]}}/>
             </button>
             <div className={css.carousel} ref={carousel}>
-                {popularMovies.results && popularMovies.results.map(movie => <Card key={movie.id} movie={movie}/>)}
+                {similarMovies.results && similarMovies.results.map(value => <Card key={value.id} value={value}/>)}
             </div>
             <button onClick={handleRightClick}>
                 <ArrowForwardIosIcon fontSize="large" sx={{color: orange[500]}}/>
@@ -47,4 +65,5 @@ const MoviesCarousel = () => {
     );
 };
 
-export {MoviesCarousel};
+
+export {MoviesAndShowsCarousel};

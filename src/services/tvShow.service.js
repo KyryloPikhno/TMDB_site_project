@@ -23,6 +23,7 @@ const tvShowService = {
         {
             params: {}
         }),
+    getSimilar: (id) => axiosService.get(`${baseURl}${urls.tvShow}/${id}/similar`)
 };
 
 

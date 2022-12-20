@@ -23,7 +23,8 @@ const movieService = {
         {
             params: {}
         }),
-    getPopularMovies: () => axiosService.get(`${baseURl}${urls.popularMovies}`)
+    getSimilar: (id) => axiosService.get(`${baseURl}${urls.movie}/${id}/similar`)
 };
+
 
 export {movieService};
