@@ -7,6 +7,7 @@ import {tvShowActions} from "../../redux/slices";
 import {PaginationMain} from "../PaginationMain/PaginationMain";
 import {Card} from "../Card/Card";
 import css from './TVShows.module.css'
+import {SkeletonUI} from "../SkeletonUI/SkeletonUI";
 
 
 const TVShows = () => {
@@ -14,7 +15,7 @@ const TVShows = () => {
 
     const [query] = useSearchParams({page: '1'});
 
-    const {tvShows, totalPages, currentPage} = useSelector(state => state.tvShowReducer)
+    const {tvShows, totalPages, currentPage,loading} = useSelector(state => state.tvShowReducer)
 
     const dispatch = useDispatch();
 
@@ -40,17 +41,37 @@ const TVShows = () => {
     }, [query, currentPage]);
 
     return (
-        <div className={currentTheme ==='dark' ? css.wrap : css.lightWrap}>
-            <div className={css.carouselContainer}>
-                {/*<MoviesCarousel/>*/}
+
+        <div>
+            <div className={currentTheme === 'dark' ? css.wrap : css.lightWrap}>
+                {
+                    loading ?
+                        <SkeletonUI/>
+                        :
+                        <div>
+                            {tvShows && <div className={css.container}>
+                                {tvShows && tvShows.map(value => <Card key={value.id} value={value}/>)}
+                            </div>}
+                        </div>
+                }
+                <div className={css.pagination}>
+                    <PaginationMain totalPages={totalPages} currentPage={currentPage}/>
+                </div>
             </div>
-            {tvShows && <div className={css.container}>
-                {tvShows && tvShows.map(value => <Card key={value.id} value={value}/>)}
-            </div>}
-            <div className={css.pagination}>
-                <PaginationMain totalPages={totalPages} currentPage={currentPage}/>
-            </div>
+
         </div>
+
+        // <div className={currentTheme ==='dark' ? css.wrap : css.lightWrap}>
+        //     <div className={css.carouselContainer}>
+        //         {/*<MoviesCarousel/>*/}
+        //     </div>
+        //     {tvShows && <div className={css.container}>
+        //         {tvShows && tvShows.map(value => <Card key={value.id} value={value}/>)}
+        //     </div>}
+        //     <div className={css.pagination}>
+        //         <PaginationMain totalPages={totalPages} currentPage={currentPage}/>
+        //     </div>
+        // </div>
     );
 };
 export {TVShows};

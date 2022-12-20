@@ -1,0 +1,10 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    /*padding-top: 40px;*/
+}
+
+.container span{
+    border-radius: 8px;
+}

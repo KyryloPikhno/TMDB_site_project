@@ -13,7 +13,7 @@ import css from './Movies.module.css'
 const Movies = () => {
     const [query] = useSearchParams({page: '1'});
 
-    const {movies, totalPages, currentPage} = useSelector(state => state.movieReducer)
+    const {movies, totalPages, currentPage, loading} = useSelector(state => state.movieReducer)
 
     const {currentTheme} = useSelector(state => state.themeReducer);
 
@@ -31,8 +31,7 @@ const Movies = () => {
                 page: query.get('page'),
                 genre: query.get('with_genres'),
             }));
-        }
-        else {
+        } else {
             dispatch(movieActions.search({
                 page: query.get('page'),
                 query: query.get('query'),
@@ -41,18 +40,23 @@ const Movies = () => {
     }, [query, currentPage]);
 
     return (
-        <div className={currentTheme ==='dark' ? css.wrap : css.lightWrap}>
-            <SkeletonUI/>
+        <div>
+            <div className={currentTheme === 'dark' ? css.wrap : css.lightWrap}>
+                {
+                    loading ?
+                        <SkeletonUI/>
+                        :
+                        <div>
+                            {movies && <div className={css.container}>
+                                {movies && movies.map(value => <Card key={value.id} value={value}/>)}
+                            </div>}
+                        </div>
+                }
+                <div className={css.pagination}>
+                    <PaginationMain totalPages={totalPages} currentPage={currentPage}/>
+                </div>
+            </div>
 
-            {/*<div className={css.carouselContainer}>*/}
-            {/*    /!*<MoviesCarousel/>*!/*/}
-            {/*</div>*/}
-            {/*{movies && <div className={css.container}>*/}
-            {/*    {movies && movies.map(value => <Card key={value.id} value={value}/>)}*/}
-            {/*</div>}*/}
-            {/*<div className={css.pagination}>*/}
-            {/*    <PaginationMain totalPages={totalPages} currentPage={currentPage}/>*/}
-            {/*</div>*/}
         </div>
     );
 };

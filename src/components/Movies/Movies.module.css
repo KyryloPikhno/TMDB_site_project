@@ -4,9 +4,9 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    /*gap: 40px;*/
     width: 1200px;
-    margin-left: 350px;
+    margin-left: 380px;
     background: #1d1d1d;
     transition: 0.3s;
 }
@@ -34,6 +34,7 @@
 }
 
 .pagination{
+    padding-top: 40px;
     align-self: start;
 }
 

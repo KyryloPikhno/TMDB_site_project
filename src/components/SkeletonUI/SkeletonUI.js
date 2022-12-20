@@ -1,18 +1,38 @@
-import * as React from 'react';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 
-const SkeletonUI=()=> {
+import css from './SkeletonUI.module.css'
+
+
+const SkeletonUI = () => {
     return (
         <Stack spacing={2}>
-            <div>
-
-            <Skeleton variant="rectangular" width={200} height={300} />
+            <div className={css.container}>
+                <Skeleton variant="rectangular" width={214} height={373}/>
+                <Skeleton variant="rectangular" width={214} height={373}/>
+                <Skeleton variant="rectangular" width={214} height={373}/>
+                <Skeleton variant="rectangular" width={214} height={373}/>
+                <Skeleton variant="rectangular" width={214} height={373}/>
+                <Skeleton variant="rectangular" width={214} height={367}/>
+                <Skeleton variant="rectangular" width={214} height={367}/>
+                <Skeleton variant="rectangular" width={214} height={367}/>
+                <Skeleton variant="rectangular" width={214} height={367}/>
+                <Skeleton variant="rectangular" width={214} height={367}/>
+                <Skeleton variant="rectangular" width={214} height={367}/>
+                <Skeleton variant="rectangular" width={214} height={367}/>
+                <Skeleton variant="rectangular" width={214} height={367}/>
+                <Skeleton variant="rectangular" width={214} height={367}/>
+                <Skeleton variant="rectangular" width={214} height={367}/>
+                <Skeleton variant="rectangular" width={214} height={367}/>
+                <Skeleton variant="rectangular" width={214} height={367}/>
+                <Skeleton variant="rectangular" width={214} height={367}/>
+                <Skeleton variant="rectangular" width={214} height={367}/>
+                <Skeleton variant="rectangular" width={214} height={367}/>
             </div>
             {/*<Skeleton variant="text" sx={{ fontSize: '1rem' }} />*/}
 
         </Stack>
     );
-}
+};
 
 export {SkeletonUI}
