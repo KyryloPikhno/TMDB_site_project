@@ -26,52 +26,47 @@ const MoviesAndShowsCarousel = ({id}) => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        if (currentPath === '/all_movies') {
-            dispatch(movieActions.getSimilarMovies({id}))
-        }
-        if (currentPath === '/all_TV-shows') {
-            dispatch(tvShowActions.getSimilarTvShows({id}))
-        }
-    }, [id, dispatch, currentPath]);
+        dispatch(movieActions.getSimilarMovies({id}))
+
+        dispatch(tvShowActions.getSimilarTvShows({id}))
+    }, [id, dispatch]);
 
     const handleLeftClick = (e) => {
         e.preventDefault();
         carousel.current.scrollLeft -= carousel.current.offsetWidth;
     };
-    console.log(currentPath);
 
     const handleRightClick = (e) => {
         e.preventDefault();
         carousel.current.scrollLeft += carousel.current.offsetWidth;
     };
 
-    if (!similarTVShows|| !similarTVShows.length) return null;
+    if (!similarTVShows || !similarTVShows.length) return null;
 
     if (!similarMovies || !similarMovies.length) return null;
 
-
     return (
         <div>
-            {currentPath === '/all_TV-shows' &&
+            {currentPath === '/all_TV-shows' ?
                 <div className={css.container}>
                     <button onClick={handleLeftClick}>
                         <ArrowBackIosNewIcon fontSize="large" sx={{color: orange[500]}}/>
                     </button>
                     <div className={css.carousel} ref={carousel}>
-                        {similarTVShows && similarTVShows.map(value => <Card key={value.id} value={value}/>)}
+                        {similarTVShows.length !== 0 && similarTVShows.map(value => <Card key={value.id}
+                                                                                          value={value}/>)}
                     </div>
                     <button onClick={handleRightClick}>
                         <ArrowForwardIosIcon fontSize="large" sx={{color: orange[500]}}/>
                     </button>
-                </div>}
-            ||
-            {currentPath === '/all_movies' &&
+                </div>
+                :
                 <div className={css.container}>
                     <button onClick={handleLeftClick}>
                         <ArrowBackIosNewIcon fontSize="large" sx={{color: orange[500]}}/>
                     </button>
                     <div className={css.carousel} ref={carousel}>
-                        {similarMovies.length !== 0 && similarMovies.map(value => <Card key={value.id} value={value}/>)}
+                        {similarMovies && similarMovies.map(value => <Card key={value.id} value={value}/>)}
                     </div>
                     <button onClick={handleRightClick}>
                         <ArrowForwardIosIcon fontSize="large" sx={{color: orange[500]}}/>

@@ -2,9 +2,8 @@
     width: 100%;
     display: flex;
     border-bottom: 2px solid orange;
-    padding-bottom: 9px;
+    padding-bottom: 17px;
     height: 380px;
-    z-index: 5;
 }
 
 .container .carousel {

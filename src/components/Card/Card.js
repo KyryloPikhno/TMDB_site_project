@@ -1,5 +1,5 @@
 import {useSelector} from "react-redux";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 import {Badge} from "../Badge/Badge";
 import {Stars} from "../Stars/Stars";
@@ -16,8 +16,12 @@ const Card = ({value}) => {
 
     const badges = genres.filter(genre => genre_ids.includes(genre.id)).map(value => value)
 
+    const location = useLocation()
+
+    const currentPath = '/' + location.pathname.split('/')[1]
+
     return (
-        <Link className={currentTheme === 'dark'? css.card:css.lightCard} to={`detailed_info_with_id=${id}`} state={{...value}} >
+        <Link className={currentTheme === 'dark'? css.card:css.lightCard} to={`${currentPath}/detailed_info_with_id=${id}`} state={{...value}} >
             <div className={css.badgeContainer}>
                 {badges && badges.map(badge => <Badge key={badge.id} badge={badge}/>)}
             </div>

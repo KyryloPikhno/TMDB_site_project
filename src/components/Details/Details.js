@@ -10,6 +10,7 @@ import {Stars} from "../Stars/Stars";
 import {urls} from "../../configs";
 import css from './Details.module.css';
 import {MoviesAndShowsCarousel} from "../MoviesAndShowsCarousel/MoviesAndShowsCarousel";
+import {Loader} from "../Loader/Loader";
 
 
 const Details = () => {
@@ -42,7 +43,6 @@ const Details = () => {
         } else {
             dispatch(movieActions.getTrailer({id}))
         }
-
         window.scrollTo(0, 0);
     }, [id]);
 
@@ -51,33 +51,40 @@ const Details = () => {
     const badges = genres.filter(genre => genre_ids.includes(genre.id)).map(item => item)
 
     return (
-        <div className={currentTheme === 'dark' ? css.container : css.containerLight}>
-            <div className={css.backdropBox}>
-                {backdrop_path &&
-                    <img className={css.backdrop} src={`${urls.image_path}${backdrop_path}`} alt={title}/>}
-                <div className={css.badges}>
-                    {badges && badges.map(badge => <Badge key={badge.id} badge={badge}/>)}
-                </div>
-            </div>
-            <div className={currentTheme === 'dark' ? css.box : css.lightBox}>
-                <div className={css.wrap}>
-                    <KeepMountedModal poster_path={poster_path} title={title}/>
-                </div>
-                <div className={css.info}>
-                    <h1 className={css.title}>{title}</h1>
-                    <p>Original language: {original_language}</p>
-                    <p>Original title: {original_title || original_name}</p>
-                    <p>Release date: {release_date}</p>
-                    <p>Age limit: {adult ? 'For older 18' : 'for family viewing'}</p>
-                    <p>Id: {id}</p>
-                    <Stars vote_average={vote_average}/>
-                    <p>Popularity: {popularity}</p>
-                    <p>Vote count: {vote_count}</p>
-                    <p>Overview: {overview}</p>
-                </div>
-            </div>
-            <YouTubePlayer/>
-            <MoviesAndShowsCarousel id={id}/>
+
+        <div>
+            {
+                <YouTubePlayer/> ?
+                    <div className={currentTheme === 'dark' ? css.container : css.containerLight}>
+                        <div className={css.backdropBox}>
+                            {backdrop_path &&
+                                <img className={css.backdrop} src={`${urls.image_path}${backdrop_path}`} alt={title}/>}
+                            <div className={css.badges}>
+                                {badges && badges.map(badge => <Badge key={badge.id} badge={badge}/>)}
+                            </div>
+                        </div>
+                        <div className={currentTheme === 'dark' ? css.box : css.lightBox}>
+                            <div className={css.wrap}>
+                                <KeepMountedModal poster_path={poster_path} title={title}/>
+                            </div>
+                            <div className={css.info}>
+                                <h1 className={css.title}>{title}</h1>
+                                <p>Original language: {original_language}</p>
+                                <p>Original title: {original_title || original_name}</p>
+                                <p>Release date: {release_date}</p>
+                                <p>Age limit: {adult ? 'For older 18' : 'for family viewing'}</p>
+                                <p>Id: {id}</p>
+                                <Stars vote_average={vote_average}/>
+                                <p>Popularity: {popularity}</p>
+                                <p>Vote count: {vote_count}</p>
+                                <p>Overview: {overview}</p>
+                            </div>
+                        </div>
+                        <YouTubePlayer/>
+                        <MoviesAndShowsCarousel id={id}/>
+                    </div>
+                    :
+                    <Loader/>}
         </div>
     );
 };

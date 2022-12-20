@@ -1,3 +1,13 @@
+.container{
+    /*height: 500px;*/
+    display: flex;
+    justify-content: center;
+    margin-top:200px ;
+    width: 1200px;
+    margin-left: 335px;
+    height: 100vh;
+}
+
 .loader{
     width: 100px;
     height: 100px;
