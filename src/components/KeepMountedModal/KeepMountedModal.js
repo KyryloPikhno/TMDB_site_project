@@ -20,9 +20,10 @@ const style = {
 };
 
 const KeepMountedModal = ({poster_path, title}) => {
-
     const [open, setOpen] = useState(false);
+
     const handleOpen = () => setOpen(true);
+
     const handleClose = () => setOpen(false);
 
     return (

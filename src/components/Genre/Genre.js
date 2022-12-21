@@ -31,4 +31,5 @@ const Genre = ({genre}) => {
     );
 };
 
+
 export {Genre};

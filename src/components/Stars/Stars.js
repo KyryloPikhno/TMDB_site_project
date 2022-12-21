@@ -22,4 +22,5 @@ const Stars = ({vote_average}) => (
     </div>
 );
 
+
 export {Stars}

@@ -13,13 +13,12 @@ const Header = () => {
 
     const {currentTheme} = useSelector(state => state.themeReducer);
 
-
     const returner = () => {
         navigate(`/all_movies?page=1`)
     }
 
     return (
-        <div className={currentTheme === 'dark'? css.header : css.lightHeader}>
+        <div className={currentTheme === 'dark' ? css.header : css.lightHeader}>
             <div className={css.imgBox} onClick={returner}>
                 <img className={css.img}
                      src="https://www.transparentpng.com/thumb/movie/gray-movie-written-icon-png-UpaYYD.png"
@@ -40,5 +39,6 @@ const Header = () => {
         </div>
     );
 };
+
 
 export {Header};

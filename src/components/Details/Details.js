@@ -2,15 +2,15 @@ import {useDispatch, useSelector} from "react-redux";
 import {useLocation} from "react-router-dom";
 import {useEffect} from "react";
 
+import {movieActions, tvShowActions} from "../../redux/slices";
+import {MoviesAndShowsCarousel} from "../MoviesAndShowsCarousel/MoviesAndShowsCarousel";
 import {KeepMountedModal} from "../KeepMountedModal/KeepMountedModal";
 import {YouTubePlayer} from "../YouTubePlayer/YouTubePlayer";
-import {movieActions, tvShowActions} from "../../redux/slices";
+import {Loader} from "../Loader/Loader";
 import {Badge} from "../Badge/Badge";
 import {Stars} from "../Stars/Stars";
 import {urls} from "../../configs";
 import css from './Details.module.css';
-import {MoviesAndShowsCarousel} from "../MoviesAndShowsCarousel/MoviesAndShowsCarousel";
-import {Loader} from "../Loader/Loader";
 
 
 const Details = () => {
@@ -54,7 +54,7 @@ const Details = () => {
 
         <div>
             {
-                <YouTubePlayer/> ?
+                poster_path ?
                     <div className={currentTheme === 'dark' ? css.container : css.containerLight}>
                         <div className={css.backdropBox}>
                             {backdrop_path &&
@@ -81,12 +81,13 @@ const Details = () => {
                             </div>
                         </div>
                         <YouTubePlayer/>
-                        <MoviesAndShowsCarousel id={id}/>
+                        <MoviesAndShowsCarousel/>
                     </div>
                     :
                     <Loader/>}
         </div>
     );
 };
+
 
 export {Details};

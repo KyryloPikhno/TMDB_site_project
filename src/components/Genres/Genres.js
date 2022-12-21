@@ -23,4 +23,5 @@ const Genres = () => {
     );
 };
 
+
 export {Genres};

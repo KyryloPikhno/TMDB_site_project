@@ -1,9 +1,9 @@
-import css from './NotFound.module.css';
 import {useNavigate} from "react-router-dom";
+
+import css from './NotFound.module.css';
 
 
 const NotFound = () => {
-
     const navigate = useNavigate()
 
     const returner = () => {
@@ -17,5 +17,6 @@ const NotFound = () => {
         </div>
     );
 };
+
 
 export {NotFound};

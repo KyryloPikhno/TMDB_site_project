@@ -1,9 +1,9 @@
-import css from './LinkButton.module.css'
 import {NavLink} from "react-router-dom";
+
+import css from './LinkButton.module.css'
 
 
 const LinkButton = () => {
-
 
     return (
         <div className={css.container}>
@@ -13,5 +13,6 @@ const LinkButton = () => {
         </div>
     );
 };
+
 
 export {LinkButton};

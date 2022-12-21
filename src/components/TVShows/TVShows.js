@@ -39,22 +39,23 @@ const TVShows = () => {
     }, [query, currentPage]);
 
     return (
-            <div className={currentTheme === 'dark' ? css.wrap : css.lightWrap}>
-                {
-                    loading ?
-                        <SkeletonUI/>
-                        :
-                        <div>
-                            {tvShows && <div className={css.container}>
-                                {tvShows && tvShows.map(value => <Card key={value.id} value={value}/>)}
-                            </div>}
-                        </div>
-                }
-                <div className={css.pagination}>
-                    <PaginationMain totalPages={totalPages} currentPage={currentPage}/>
-                </div>
+        <div className={currentTheme === 'dark' ? css.wrap : css.lightWrap}>
+            {
+                loading ?
+                    <SkeletonUI/>
+                    :
+                    <div>
+                        {tvShows && <div className={css.container}>
+                            {tvShows && tvShows.map(value => <Card key={value.id} value={value}/>)}
+                        </div>}
+                    </div>
+            }
+            <div className={css.pagination}>
+                <PaginationMain totalPages={totalPages} currentPage={currentPage}/>
             </div>
+        </div>
     );
 };
+
 
 export {TVShows};

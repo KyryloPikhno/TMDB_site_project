@@ -1,6 +1,6 @@
 import {createSearchParams, useLocation, useNavigate, useSearchParams} from "react-router-dom";
-import {joiResolver} from "@hookform/resolvers/joi";
 import { useSelector} from "react-redux";
+import {joiResolver} from "@hookform/resolvers/joi";
 import {useForm} from "react-hook-form";
 
 import {movieValidator} from "../../validators";
@@ -17,7 +17,7 @@ const SearchForm = () => {
 
     const navigate = useNavigate()
 
-    const location =useLocation()
+    const location = useLocation()
 
     const currentPath = location.pathname.split('/')[1]
 
@@ -44,5 +44,6 @@ const SearchForm = () => {
         </form>
     );
 };
+
 
 export {SearchForm};

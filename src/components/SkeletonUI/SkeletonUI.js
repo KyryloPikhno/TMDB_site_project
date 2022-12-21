@@ -30,9 +30,9 @@ const SkeletonUI = () => {
                 <Skeleton variant="rectangular" width={214} height={367}/>
             </div>
             {/*<Skeleton variant="text" sx={{ fontSize: '1rem' }} />*/}
-
         </Stack>
     );
 };
+
 
 export {SkeletonUI}

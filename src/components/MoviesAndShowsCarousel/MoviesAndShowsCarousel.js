@@ -1,8 +1,8 @@
 import {useDispatch, useSelector} from "react-redux";
+import {useLocation, useParams} from "react-router-dom";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import {useEffect, useRef} from "react";
-import {useLocation} from "react-router-dom";
 import {orange} from "@mui/material/colors";
 
 import {movieActions, tvShowActions} from "../../redux/slices";
@@ -10,17 +10,17 @@ import {Card} from "../Card/Card";
 import css from './MoviesAndShowsCarousel.module.css'
 
 
-const MoviesAndShowsCarousel = ({id}) => {
-    let {similarMovies} = useSelector(state => state.movieReducer)
+const MoviesAndShowsCarousel = () => {
+    const {similarMovies} = useSelector(state => state.movieReducer)
 
-    let {similarTVShows} = useSelector(state => state.tvShowReducer)
+    const {similarTVShows} = useSelector(state => state.tvShowReducer)
 
-    console.log(similarTVShows);
-    console.log(similarMovies);
+    const {id} = useParams()
 
     const carousel = useRef(null);
 
     const location = useLocation()
+
     const currentPath = '/' + location.pathname.split('/')[1]
 
     const dispatch = useDispatch()
@@ -29,7 +29,7 @@ const MoviesAndShowsCarousel = ({id}) => {
         dispatch(movieActions.getSimilarMovies({id}))
 
         dispatch(tvShowActions.getSimilarTvShows({id}))
-    }, [id, dispatch]);
+    }, [id, dispatch, currentPath]);
 
     const handleLeftClick = (e) => {
         e.preventDefault();

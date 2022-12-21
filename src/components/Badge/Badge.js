@@ -27,4 +27,5 @@ const Badge = ({badge}) => {
     );
 };
 
+
 export {Badge};
