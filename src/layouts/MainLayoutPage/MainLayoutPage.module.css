@@ -24,19 +24,61 @@ html{
     height: max-content;
 }
 
-/*@media screen and (max-width: 600px){*/
-/*    body {*/
-/*        max-width: 100vw;*/
-/*        min-width: 100vw;*/
-/*    }*/
+.mobileButton{
+    display: none;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    /*border: 2px solid orange;*/
+    z-index: 10;
+}
+
+.mobileButton span{
+    width: 80%;
+    height: 4px;
+    background: orange;
+    position: relative;
+    transition: background-color 300ms 100ms;
+}
+
+.mobileButton span::before, .mobileButton span::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: orange;
+}
+
+.mobileButton span::before{
+    top: -10px;
+}
+
+.mobileButton span::after {
+    bottom: -10px;
+}
 
 
-/*    .container,.lightContainer {*/
-/*        max-width: 100vw;*/
-/*        min-width: 100vw;*/
-/*    }*/
+@media screen and (max-width: 600px){
+    body {
+        max-width: 100vw;
+        min-width: 100vw;
+    }
 
-/*}*/
+    .container,.lightContainer {
+        max-width: 100vw;
+        min-width: 100vw;
+    }
+
+    .mobileButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+}
 
 
 

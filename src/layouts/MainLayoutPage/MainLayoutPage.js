@@ -13,6 +13,9 @@ const MainLayoutPage = () => {
     return (
         <div className={currentTheme === 'dark' ? css.container : css.lightContainer}>
             <div className={css.box}>
+                <div className={css.mobileButton}>
+                    <span></span>
+                </div>
                 <div>
                     <Header/>
                 </div>
