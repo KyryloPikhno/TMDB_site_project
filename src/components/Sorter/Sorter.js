@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 import css from './Sorter.module.css'
 
 
-const Sorter = () => {
+const Sorter = ({setVisible}) => {
     const {currentTheme} = useSelector(state => state.themeReducer);
 
     const navigate = useNavigate()
@@ -21,6 +21,7 @@ const Sorter = () => {
                 sort_by: value,
             }).toString()
         });
+        setVisible(false)
     };
 
     return (

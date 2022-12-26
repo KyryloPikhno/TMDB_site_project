@@ -49,36 +49,73 @@ html{
     height: 100%;
     position: absolute;
     background-color: orange;
+    transition-duration: 300ms, 300ms;
+    transition-delay: 300ms, 0ms;
 }
 
-.mobileButton span::before{
+.mobileButton span::before {
     top: -10px;
+    transition-property: top,tramsform;
 }
 
 .mobileButton span::after {
     bottom: -10px;
+    transition-property:bottom,tramsform ;
 }
-
 
 @media screen and (max-width: 600px){
-    body {
-        max-width: 100vw;
-        min-width: 100vw;
+
+        body {
+            max-width: 100vw;
+            min-width: 100vw;
+        }
+
+        .container,.lightContainer {
+            max-width: 100vw;
+            min-width: 100vw;
+        }
+
+        .mobileButton {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header{
+            position: absolute;
+            background: lime;
+            right: 800px;
+            opacity: 0;
+        }
+
+        [class='MainLayoutPage_header__9bKjN active']{
+            opacity: 1;
+            visibility: visible;
+            left: 0;
+            transition:  left 3s;
+        }
+
+        [class='MainLayoutPage_mobileButton__KFXRG active'] span{
+            background: transparent;
+        }
+
+    [class='MainLayoutPage_mobileButton__KFXRG active'] span::before{
+        top:0;
+        transform: rotate(-45deg);
     }
 
-    .container,.lightContainer {
-        max-width: 100vw;
-        min-width: 100vw;
+    [class='MainLayoutPage_mobileButton__KFXRG active'] span::after{
+        bottom:0;
+        transform: rotate(45deg);
     }
 
-    .mobileButton {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    [class='MainLayoutPage_mobileButton__KFXRG active'] span::before,     [class='MainLayoutPage_mobileButton__KFXRG active'] span::after{
+        transition-duration: 300ms,300ms;
+        transition-delay: 0ms,300ms;
     }
-
-
 }
+
+
 
 
 

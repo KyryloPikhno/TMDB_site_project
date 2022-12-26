@@ -8,13 +8,14 @@ import {Genres} from "../Genres/Genres";
 import css from './Header.module.css'
 
 
-const Header = () => {
+const Header = ({setVisible}) => {
     const navigate = useNavigate()
 
     const {currentTheme} = useSelector(state => state.themeReducer);
 
     const returner = () => {
         navigate(`/all_movies?page=1`)
+        setVisible(false)
     }
 
     return (
@@ -25,13 +26,13 @@ const Header = () => {
                      alt="logo_movie"/>
             </div>
             <div>
-                <SearchForm/>
+                <SearchForm setVisible={setVisible}/>
             </div>
             <div>
-                <Genres/>
+                <Genres setVisible={setVisible}/>
             </div>
             <div>
-                <Sorter/>
+                <Sorter setVisible={setVisible}/>
             </div>
             <div>
                 <ThemeSwitcher/>

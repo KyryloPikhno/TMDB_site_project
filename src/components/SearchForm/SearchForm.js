@@ -7,7 +7,7 @@ import {movieValidator} from "../../validators";
 import css from './SearchForm.module.css'
 
 
-const SearchForm = () => {
+const SearchForm = ({setVisible}) => {
     const {currentTheme} = useSelector(state => state.themeReducer);
 
     const {handleSubmit, register, reset, formState: {errors, isValid}} = useForm({
@@ -38,6 +38,7 @@ const SearchForm = () => {
                    placeholder={'Enter movie...'} {...register('query')}/>
             <button
                 className={!isValid ? css.noValidButton : '' || currentTheme === 'dark' ? css.button : css.lightButton}
+               onClick={()=>setVisible(false)}
                 disabled={!isValid}>Search
             </button>
             {errors.year && <span>{errors.year.message}</span>}

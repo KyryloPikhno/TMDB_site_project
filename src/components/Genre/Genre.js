@@ -4,7 +4,7 @@ import { useSelector} from "react-redux";
 import css from './Genre.module.css'
 
 
-const Genre = ({genre}) => {
+const Genre = ({genre,setVisible}) => {
     const {currentTheme} = useSelector(state => state.themeReducer);
 
     const navigate = useNavigate()
@@ -21,6 +21,7 @@ const Genre = ({genre}) => {
                 with_genres: genre.id
             }).toString()
         });
+        setVisible(false)
     };
 
     return (
