@@ -1,8 +1,8 @@
 .containerForGenre {
     display: flex;
     flex-direction: column;
-    padding: 20px ;
-    gap: 5px;
+    padding: 10px ;
+    gap: 2px;
 }
 
 .containerForGenre h3{
@@ -11,4 +11,10 @@
     color: orange;
     border-bottom:2px solid orange;
     margin-bottom: 5px;
+}
+
+@media screen and (max-width: 600px) {
+    .containerForGenre {
+       padding: 0;
+    }
 }
