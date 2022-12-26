@@ -12,7 +12,7 @@ import css from './Movies.module.css'
 const Movies = () => {
     const [query] = useSearchParams({page: '1'});
 
-    const {movies, totalPages, currentPage, loading, error} = useSelector(state => state.movieReducer)
+    let {movies, totalPages, currentPage, loading, error} = useSelector(state => state.movieReducer)
 
     const {currentTheme} = useSelector(state => state.themeReducer);
 
@@ -38,13 +38,17 @@ const Movies = () => {
         }
     }, [query, currentPage]);
 
+    loading = true
+
     return (
         <div className={currentTheme === 'dark' ? css.wrap : css.lightWrap}>
             {
                 loading ?
-                    <SkeletonUI/>
+                    <div className={css.wrapper}>
+                       <SkeletonUI/>
+                    </div>
                     :
-                    <div>
+                    <div className={css.wrapper}>
                         {movies && <div className={css.container}>
                             {movies && movies.map(value => <Card key={value.id} value={value}/>)}
                         </div>}

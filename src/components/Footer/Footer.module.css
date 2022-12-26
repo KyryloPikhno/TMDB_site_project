@@ -32,13 +32,15 @@
     width: 40px;
 }
 
-/*@media screen and (max-width: 600px){*/
+@media screen and (max-width: 600px){
 
-/*    .box{*/
-/*        margin-left: 110px;*/
-/*    }*/
+    .footer,.lightFooter{
+        margin-left: 0;
+        width: 100%;
+    }
 
-/*    .footer{*/
-/*        width: 100vw;*/
-/*    }*/
-/*}*/
+    .box{
+        margin-left: 110px;
+    }
+
+}

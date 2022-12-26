@@ -9,8 +9,9 @@
     border-radius: 10px;
 }
 
-/*@media screen and (max-width: 600px){*/
-/*    .container {*/
-/*        margin-left: 0;*/
-/*    }*/
-/*}*/
+@media screen and (max-width: 600px){
+    .container {
+        margin:0;
+        margin-left: 5vw;
+    }
+}

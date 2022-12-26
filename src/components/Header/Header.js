@@ -25,10 +25,10 @@ const Header = ({setVisible}) => {
                      src="https://www.transparentpng.com/thumb/movie/gray-movie-written-icon-png-UpaYYD.png"
                      alt="logo_movie"/>
             </div>
-            <div>
+            <div className={css.searchForm}>
                 <SearchForm setVisible={setVisible}/>
             </div>
-            <div>
+            <div className={css.genres}>
                 <Genres setVisible={setVisible}/>
             </div>
             <div>

@@ -2,9 +2,25 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    /*padding-top: 40px;*/
 }
 
 .container span{
     border-radius: 8px;
 }
+
+@media screen and (max-width: 600px){
+
+    .container{
+        width: 50%;
+        height: 100%;
+        gap:10px;
+        justify-content: center;
+    }
+
+    .wrapper{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+

@@ -36,6 +36,27 @@
     transition: 0.3s;
 }
 
+@media screen and (max-width: 600px){
+    .searchForm{
+        display: flex;
+        justify-content: center;
+    }
+    .imgBox {
+        width: 80px;
+    }
+
+    .img{
+        width: 80px;
+    }
+
+    .img:hover{
+        width: 80px;
+    }
+
+}
+
+
+
 
 
 

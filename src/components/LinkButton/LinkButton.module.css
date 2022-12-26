@@ -7,7 +7,7 @@
     display: flex;
     justify-content: center;
     align-items:center;
-    gap: 20px;
+    gap: 5px;
 }
 
 .container hr{
@@ -26,4 +26,12 @@
 
 .container a[class='active']{
     color: red;
+}
+
+@media screen and (max-width: 600px) {
+    .container{
+        position: absolute;
+        left: 24%;
+        top: 50px;
+    }
 }
