@@ -6,7 +6,7 @@ import css from './SkeletonUI.module.css'
 
 const SkeletonUI = () => {
     return (
-        <Stack spacing={2} className={css.wrapper}>
+        <Stack spacing={2}>
             <div className={css.container}>
                 <Skeleton variant="rectangular" width={214} height={373}/>
                 <Skeleton variant="rectangular" width={214} height={373}/>

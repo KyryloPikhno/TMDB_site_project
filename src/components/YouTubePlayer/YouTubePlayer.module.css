@@ -5,13 +5,18 @@
     align-items: center;
 }
 
-.trailer {
-    position: relative;
-    width: 50%;
+.trailer_wrapper div{
+    width: 100%;
+    height: 100%;
+
+}
+
+.trailer_wrapper iframe{
+    width: 100%;
+    height: 675px;
 }
 
 .trailer button {
-
     width: 35px;
     height: 35px;
 
@@ -30,4 +35,11 @@
 
     background-color: black;
     color: #777;
+}
+
+@media screen and (max-width: 600px) {
+    .trailer_wrapper iframe{
+        height: 220px;
+    }
+
 }

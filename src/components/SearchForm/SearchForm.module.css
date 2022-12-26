@@ -26,6 +26,7 @@
     height: 45px;
     transition: 1s;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .noValidButton{

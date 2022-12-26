@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     justify-content: start;
-    /*background: #353535;*/
     color: #d6d6d6;
     width: 120px;
     font-size: 15px;
@@ -10,16 +9,11 @@
     text-align: center;
     text-decoration: none;
     transition: 0.3s;
-    cursor: alias;
+    cursor: pointer;
 }
-
-/*.box:hover,.lightBox:hover{*/
-/*    width: 122px;*/
-/*}*/
 
 .lightBox{
     color: #1d1d1d;
-    /*background: white;*/
 }
 
 a[class='Genre_box__8vs2P active'] {

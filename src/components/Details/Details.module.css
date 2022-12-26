@@ -79,17 +79,45 @@
 }
 
 @media screen and (max-width: 600px) {
-    .container {
+    .container,.containerLight {
         width: 100vw;
+        margin-left: 0;
+    }
+
+    .wrap{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .badges{
-        top: 300px;
+        top: 200px;
     }
 
     .badges div{
         width: 69px;
         height: 13px;
         font-size: 10px;
+    }
+
+    .box,.lightBox {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .title{
+        font-size: 25px;
+    }
+
+    .info,.lightInfo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+        padding: 0;
     }
 }

@@ -44,7 +44,7 @@ const TVShows = () => {
                 loading ?
                     <SkeletonUI/>
                     :
-                    <div>
+                    <div className={css.wrapper}>
                         {tvShows && <div className={css.container}>
                             {tvShows && tvShows.map(value => <Card key={value.id} value={value}/>)}
                         </div>}

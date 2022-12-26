@@ -12,7 +12,7 @@ import css from './Movies.module.css'
 const Movies = () => {
     const [query] = useSearchParams({page: '1'});
 
-    let {movies, totalPages, currentPage, loading, error} = useSelector(state => state.movieReducer)
+    const {movies, totalPages, currentPage, loading, error} = useSelector(state => state.movieReducer)
 
     const {currentTheme} = useSelector(state => state.themeReducer);
 
@@ -37,8 +37,6 @@ const Movies = () => {
             }))
         }
     }, [query, currentPage]);
-
-    loading = true
 
     return (
         <div className={currentTheme === 'dark' ? css.wrap : css.lightWrap}>
