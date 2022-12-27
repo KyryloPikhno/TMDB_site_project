@@ -4,10 +4,10 @@ import {useEffect} from "react";
 
 import {tvShowActions} from "../../redux/slices";
 import {PaginationMain} from "../PaginationMain/PaginationMain";
+import {LinkButton} from "../LinkButton/LinkButton";
 import {SkeletonUI} from "../SkeletonUI/SkeletonUI";
 import {Card} from "../Card/Card";
 import css from './TVShows.module.css'
-import {LinkButton} from "../LinkButton/LinkButton";
 
 
 const TVShows = () => {
@@ -41,7 +41,7 @@ const TVShows = () => {
 
     return (
         <div className={currentTheme === 'dark' ? css.wrap : css.lightWrap}>
-                            <LinkButton/>
+            <LinkButton/>
             {
                 loading ?
                     <SkeletonUI/>

@@ -4,10 +4,10 @@ import {useEffect} from "react";
 
 import {PaginationMain} from "../PaginationMain/PaginationMain";
 import {movieActions} from "../../redux/slices";
+import {LinkButton} from "../LinkButton/LinkButton";
 import {SkeletonUI} from "../SkeletonUI/SkeletonUI";
 import {Card} from "../Card/Card";
 import css from './Movies.module.css'
-import {LinkButton} from "../LinkButton/LinkButton";
 
 
 const Movies = () => {
@@ -41,7 +41,7 @@ const Movies = () => {
 
     return (
         <div className={currentTheme === 'dark' ? css.wrap : css.lightWrap}>
-                            <LinkButton/>
+            <LinkButton/>
             {
                 loading ?
                     <div className={css.wrapper}>
