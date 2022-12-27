@@ -7,9 +7,9 @@ const LinkButton = () => {
 
     return (
         <div className={css.container}>
-            <NavLink to={'all_movies'}>Movies</NavLink>
+            <NavLink to={'/all_movies'}>Movies</NavLink>
             <hr/>
-            <NavLink to={'all_TV-shows'}>TV shows</NavLink>
+            <NavLink to={'/all_TV-shows'}>TV shows</NavLink>
         </div>
     );
 };

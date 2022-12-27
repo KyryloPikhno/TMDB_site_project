@@ -28,14 +28,18 @@ const Header = ({setVisible}) => {
             <div className={css.searchForm}>
                 <SearchForm setVisible={setVisible}/>
             </div>
+            <div className={css.block}>
             <div className={css.genres}>
                 <Genres setVisible={setVisible}/>
             </div>
+                <div className={css.wrap}>
             <div>
                 <Sorter setVisible={setVisible}/>
             </div>
             <div>
                 <ThemeSwitcher/>
+            </div>
+                </div>
             </div>
         </div>
     );

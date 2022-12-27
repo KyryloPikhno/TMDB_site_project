@@ -7,6 +7,7 @@ import {movieActions} from "../../redux/slices";
 import {SkeletonUI} from "../SkeletonUI/SkeletonUI";
 import {Card} from "../Card/Card";
 import css from './Movies.module.css'
+import {LinkButton} from "../LinkButton/LinkButton";
 
 
 const Movies = () => {
@@ -40,21 +41,22 @@ const Movies = () => {
 
     return (
         <div className={currentTheme === 'dark' ? css.wrap : css.lightWrap}>
+                            <LinkButton/>
             {
                 loading ?
                     <div className={css.wrapper}>
-                       <SkeletonUI/>
+                        <SkeletonUI/>
                     </div>
                     :
                     <div className={css.wrapper}>
                         {movies && <div className={css.container}>
                             {movies && movies.map(value => <Card key={value.id} value={value}/>)}
                         </div>}
+                        <div className={css.pagination}>
+                            <PaginationMain totalPages={totalPages} currentPage={currentPage}/>
+                        </div>
                     </div>
             }
-            <div className={css.pagination}>
-                <PaginationMain totalPages={totalPages} currentPage={currentPage}/>
-            </div>
         </div>
     );
 };

@@ -1,13 +1,10 @@
 .container{
-    position: absolute;
-    left: 833px;
-    top: 50px;
-    /*background: #d6d6d6;*/
-    width: 220px;
+    margin: 20px;
     display: flex;
     justify-content: center;
     align-items:center;
     gap: 5px;
+
 }
 
 .container hr{
@@ -19,7 +16,7 @@
 }
 
 .container a{
-  font-size: 19px;
+    font-size: 19px;
     color: white;
     text-decoration: none;
     cursor: pointer;
@@ -29,10 +26,9 @@
     color: red;
 }
 
-@media screen and (max-width: 600px) {
-    .container{
-        position: absolute;
-        left: 24%;
-        top: 50px;
-    }
-}
+/*@media screen and (max-width: 600px) {*/
+/*    .container{*/
+/*        position: absolute;*/
+/*        top: 50px;*/
+/*    }*/
+/*}*/

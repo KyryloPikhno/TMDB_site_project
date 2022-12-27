@@ -30,10 +30,7 @@ const MainLayoutPage = () => {
                 <div className={rootHeaderClass.join(' ')}>
                     <Header setVisible={setVisible}/>
                 </div>
-                <div>
-                    <LinkButton/>
-                </div>
-                <div>
+                <div className={css.outlet}>
                     <Outlet/>
                 </div>
             </div>

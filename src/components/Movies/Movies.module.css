@@ -1,10 +1,10 @@
 .wrap,.lightWrap{
-    padding-top: 100px;
+    padding-top: 50px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    width: 1200px;
+    width: 67%;
     margin-left: 380px;
     background: #1d1d1d;
     transition: 0.3s;
@@ -33,8 +33,15 @@
 
 .pagination{
     padding-top: 40px;
-    align-self: start;
 }
+
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
 
 @media screen and (max-width: 600px){
     .wrap,.lightWrap{
@@ -50,9 +57,12 @@
         justify-content: center;
     }
 
-    .wrapper {
+    .pagination{
+        padding-top: 40px;
         display: flex;
         justify-content: center;
+        align-items: center;
     }
+
 }
 

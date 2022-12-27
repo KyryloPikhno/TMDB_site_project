@@ -1,13 +1,10 @@
 .footer,.lightFooter{
     color: white;
-    /*width: 1700px;*/
-    width: 1200px;
+    width: 100vw;
     height: 200px;
     /*border-top: 2px solid orange;*/
     display: flex;
     align-items: center;
-    margin-left: 380px;
-    /*border: 2px solid red;*/
     background: #1d1d1d;
     transition: 0.3s;
 }
@@ -20,7 +17,7 @@
 .box{
     display: flex;
     align-items: center;
-    margin-left: 10px;
+    margin-left: 385px;
 }
 
 .box p {
@@ -36,7 +33,7 @@
 
     .footer,.lightFooter{
         margin-left: 0;
-        width: 100%;
+        /*width: 100%;*/
     }
 
     .box{

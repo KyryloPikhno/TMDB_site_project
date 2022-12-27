@@ -7,6 +7,7 @@ import {PaginationMain} from "../PaginationMain/PaginationMain";
 import {SkeletonUI} from "../SkeletonUI/SkeletonUI";
 import {Card} from "../Card/Card";
 import css from './TVShows.module.css'
+import {LinkButton} from "../LinkButton/LinkButton";
 
 
 const TVShows = () => {
@@ -40,6 +41,7 @@ const TVShows = () => {
 
     return (
         <div className={currentTheme === 'dark' ? css.wrap : css.lightWrap}>
+                            <LinkButton/>
             {
                 loading ?
                     <SkeletonUI/>
@@ -48,11 +50,11 @@ const TVShows = () => {
                         {tvShows && <div className={css.container}>
                             {tvShows && tvShows.map(value => <Card key={value.id} value={value}/>)}
                         </div>}
+                        <div className={css.pagination}>
+                            <PaginationMain totalPages={totalPages} currentPage={currentPage}/>
+                        </div>
                     </div>
             }
-            <div className={css.pagination}>
-                <PaginationMain totalPages={totalPages} currentPage={currentPage}/>
-            </div>
         </div>
     );
 };
