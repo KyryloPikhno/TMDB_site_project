@@ -11,19 +11,19 @@ const PaginationMain = ({totalPages, currentPage}) => {
         e.preventDefault();
 
         if (query.get('query')) {
-            setQuery(value => ({query: query.get('query'), page}));
+            setQuery(() => ({query: query.get('query'), page}));
         } else if (query.get('with_genres')) {
-            setQuery(value => ({
+            setQuery(() => ({
                 page,
                 with_genres: query.get('with_genres').toString(),
             }));
         } else if (query.get('sort_by')) {
-            setQuery(value => ({
+            setQuery(() => ({
                 page,
                 sort_by: query.get('sort_by')
             }));
         } else {
-            setQuery(value => ({
+            setQuery(() => ({
                 page,
             }));
         }

@@ -44,7 +44,7 @@ const Details = () => {
             dispatch(movieActions.getTrailer({id}))
         }
         window.scrollTo(0, 0);
-    }, [id]);
+    }, [id, dispatch, original_name]);
 
     const {genres} = useSelector(state => state.genreReducer)
 

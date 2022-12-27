@@ -32,7 +32,7 @@ const Card = ({value}) => {
             <div className={css.title}>
                 {title || name}
             </div>
-            <div className={css.stars}>
+            <div>
                 <Stars vote_average={vote_average}/>
             </div>
         </Link>

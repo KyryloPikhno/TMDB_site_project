@@ -15,7 +15,7 @@ const TVShows = () => {
 
     const [query] = useSearchParams({page: '1'});
 
-    const {tvShows, totalPages, currentPage, loading, error} = useSelector(state => state.tvShowReducer);
+    const {tvShows, totalPages, currentPage, loading} = useSelector(state => state.tvShowReducer);
 
     const dispatch = useDispatch();
 
@@ -37,7 +37,7 @@ const TVShows = () => {
                 query: query.get('query'),
             }))
         }
-    }, [query, currentPage]);
+    }, [query, currentPage, dispatch]);
 
     return (
         <div className={currentTheme === 'dark' ? css.wrap : css.lightWrap}>
