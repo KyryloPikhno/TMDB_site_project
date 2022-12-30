@@ -22,7 +22,7 @@ const Header = ({setVisible}) => {
         <div className={currentTheme === 'dark' ? css.header : css.lightHeader}>
             <div className={css.imgBox} onClick={returner}>
                 <img className={css.img}
-                     src="../../images/gray-movie.png"
+                     src="https://www.transparentpng.com/thumb/movie/gray-movie-written-icon-png-UpaYYD.png"
                      alt="logo_movie"/>
             </div>
             <div className={css.searchForm}>
