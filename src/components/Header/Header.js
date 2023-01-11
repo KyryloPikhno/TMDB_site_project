@@ -5,6 +5,7 @@ import {ThemeSwitcher} from "../ThemeSwitcher/ThemeSwitcher";
 import {SearchForm} from "../SearchForm/SearchForm";
 import {Sorter} from "../Sorter/Sorter";
 import {Genres} from "../Genres/Genres";
+import img from '../../images/gray-movie.png'
 import css from './Header.module.css'
 
 
@@ -22,7 +23,7 @@ const Header = ({setVisible}) => {
         <div className={currentTheme === 'dark' ? css.header : css.lightHeader}>
             <div className={css.imgBox} onClick={returner}>
                 <img className={css.img}
-                     src="https://www.transparentpng.com/thumb/movie/gray-movie-written-icon-png-UpaYYD.png"
+                     src={img}
                      alt="logo_movie"/>
             </div>
             <div className={css.searchForm}>
