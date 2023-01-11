@@ -21,6 +21,7 @@
 .imgBox{
     margin-top: 20px;
     width: 153px;
+    height: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
